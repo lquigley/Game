@@ -10,11 +10,13 @@ import SpriteKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
-    var _speed:Int = 1;
+    var _speed:NSInteger = 1
+    var _lastSecond:CFTimeInterval = 0.0
     var _sameTouch:Bool = false
     
     var backgroundView:GVBackground?
     var balloon:GVBalloon = GVBalloon()
+    var ground:GVGround = GVGround()
     
     override func didMoveToView(view: SKView) {
         let midPoint = CGPointMake(CGRectGetMidX(view.bounds), CGRectGetMidY(view.bounds))
@@ -24,25 +26,31 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.backgroundView!.position = midPoint
         self.addChild(self.backgroundView!)
         
+        //Set up ground
+        self.ground.position = CGPointMake(CGRectGetMidX(view.bounds), CGRectGetHeight(self.ground.frame) / 2)
+        self.addChild(self.ground)
+        
         //Set up balloon
-        self.addChild(self.balloon)
         self.balloon.position = midPoint
+        self.addChild(self.balloon)
+        
+        self.physicsWorld.gravity = CGVectorMake(0, -1)
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        self.balloon.physicsBody!.resting = true
         self.assessTouches(touches)
-        _sameTouch = false
     }
     
     override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
         self.assessTouches(touches)
-        _sameTouch = true
     }
     
     override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
         self.assessTouches(touches)
-        _sameTouch = false
         
+        let action = SKAction.rotateToAngle(0, duration: 2.0)
+        self.balloon.runAction(action)
     }
     
     func assessTouches(touches:NSSet) {
@@ -50,23 +58,30 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let location = touch.locationInNode(self)
             
             let action = SKAction.moveTo(location, duration: 0.0)
-            if !_sameTouch {
-                action.duration = 2.0
-            }
             self.balloon.runAction(action)
         }
     }
     
     override func update(currentTime: CFTimeInterval) {
-        if (self.balloon.physicsBody!.velocity.dy > 400) {
-            self.balloon.physicsBody!.velocity = CGVectorMake(self.balloon.physicsBody!.velocity.dx, 400);
+        
+        let diceRoll = Int(arc4random_uniform(UInt32(CGRectGetWidth(self.view!.frame))))
+        
+        if (_speed == 1) {
+            // One cloud/second
+            if currentTime - _lastSecond > 2 {
+                let cloud = GVCloud()
+                cloud.position = CGPointMake(CGFloat(diceRoll), CGRectGetHeight(self.view!.frame))
+                self.addChild(cloud)
+                _lastSecond = currentTime
+            }
         }
-        
-        // rotate balloon on move
-        let rotation = (Double)((self.balloon.physicsBody!.velocity.dy + 400) / (2.0*400)) * M_2_PI;
-        self.balloon.zRotation = (CGFloat)(rotation-M_1_PI/2.0)
-        
-        let cloud = GVCloud()
-        self.addChild(cloud)
+    }
+    
+    func didBeginContact(contact: SKPhysicsContact) {
+        let node = contact.bodyA.node;
+        if node!.isKindOfClass(GVCloud) {
+            self.balloon.xScale *= 1.3
+            self.balloon.yScale *= 1.3
+        }
     }
 }

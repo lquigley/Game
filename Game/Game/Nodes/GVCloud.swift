@@ -21,6 +21,8 @@ class GVCloud: SKSpriteNode {
         self.physicsBody = SKPhysicsBody(circleOfRadius: CGRectGetWidth(self.frame) / 2)
         self.physicsBody!.allowsRotation = true
         self.physicsBody!.density = 400
+        self.physicsBody!.collisionBitMask = kBalloonCategory
+        self.physicsBody!.categoryBitMask = kGoodSpriteCategory
         
         //Random rotation to mix it up some more.
         let rotation = CGFloat(rand())/CGFloat(RAND_MAX)*2.0
@@ -34,5 +36,4 @@ class GVCloud: SKSpriteNode {
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-   
 }

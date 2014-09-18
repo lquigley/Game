@@ -18,6 +18,8 @@
 		96C51D3B19CB423200E0DF15 /* GVBalloon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C51D3A19CB423200E0DF15 /* GVBalloon.swift */; };
 		96C51D3F19CB5DD700E0DF15 /* GVBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C51D3E19CB5DD700E0DF15 /* GVBackground.swift */; };
 		96C51D4319CB70FD00E0DF15 /* GVCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C51D4219CB70FD00E0DF15 /* GVCloud.swift */; };
+		96C51D4B19CB821400E0DF15 /* GVConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C51D4A19CB821400E0DF15 /* GVConstants.swift */; };
+		96C51D4D19CB871600E0DF15 /* GVGround.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C51D4C19CB871600E0DF15 /* GVGround.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,8 @@
 		96C51D3A19CB423200E0DF15 /* GVBalloon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GVBalloon.swift; sourceTree = "<group>"; };
 		96C51D3E19CB5DD700E0DF15 /* GVBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GVBackground.swift; sourceTree = "<group>"; };
 		96C51D4219CB70FD00E0DF15 /* GVCloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GVCloud.swift; sourceTree = "<group>"; };
+		96C51D4A19CB821400E0DF15 /* GVConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GVConstants.swift; sourceTree = "<group>"; };
+		96C51D4C19CB871600E0DF15 /* GVGround.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GVGround.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +94,7 @@
 				96C51D1519CB422300E0DF15 /* AppDelegate.swift */,
 				96C51D1719CB422300E0DF15 /* GameScene.sks */,
 				96C51D1919CB422300E0DF15 /* GameScene.swift */,
+				96C51D4A19CB821400E0DF15 /* GVConstants.swift */,
 				96C51D1B19CB422300E0DF15 /* GameViewController.swift */,
 				96C51D1D19CB422300E0DF15 /* Main.storyboard */,
 				96C51D3919CB423200E0DF15 /* Nodes */,
@@ -131,6 +136,7 @@
 				96C51D3E19CB5DD700E0DF15 /* GVBackground.swift */,
 				96C51D3A19CB423200E0DF15 /* GVBalloon.swift */,
 				96C51D4219CB70FD00E0DF15 /* GVCloud.swift */,
+				96C51D4C19CB871600E0DF15 /* GVGround.swift */,
 			);
 			path = Nodes;
 			sourceTree = "<group>";
@@ -240,6 +246,8 @@
 				96C51D1C19CB422300E0DF15 /* GameViewController.swift in Sources */,
 				96C51D4319CB70FD00E0DF15 /* GVCloud.swift in Sources */,
 				96C51D3B19CB423200E0DF15 /* GVBalloon.swift in Sources */,
+				96C51D4B19CB821400E0DF15 /* GVConstants.swift in Sources */,
+				96C51D4D19CB871600E0DF15 /* GVGround.swift in Sources */,
 				96C51D3F19CB5DD700E0DF15 /* GVBackground.swift in Sources */,
 				96C51D1619CB422300E0DF15 /* AppDelegate.swift in Sources */,
 			);

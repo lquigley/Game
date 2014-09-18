@@ -17,6 +17,10 @@ class GVBalloon: SKSpriteNode {
         self.physicsBody = SKPhysicsBody(circleOfRadius: CGRectGetWidth(self.frame) / 2)
         self.physicsBody!.allowsRotation = true
         self.physicsBody!.density = 400
+        self.physicsBody!.affectedByGravity = false;
+        self.physicsBody!.collisionBitMask = kGoodSpriteCategory | kGoodSpriteCategory
+        
+        self.physicsBody!.categoryBitMask = kBalloonCategory
     }
     
     override init(texture: SKTexture?, color: SKColor?, size: CGSize) {
