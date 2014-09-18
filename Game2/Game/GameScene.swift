@@ -20,7 +20,12 @@ class GameScene: SKScene {
                 _spaceshipSprite.yScale = 0.25;
                 _spaceshipSprite.position = CGPointMake(0.5, 1.0);
                 
-                //_spaceshipSprite.physicsBody = SKPhysicsBody(circleOfRadius: _spaceshipSprite.size.width/2)
+                _spaceshipSprite.physicsBody = SKPhysicsBody(circleOfRadius: _spaceshipSprite.size.width/2)
+                _spaceshipSprite.physicsBody.dynamic = YES;
+                _spaceshipSprite.physicsBody.usesPreciseCollisionDetection = YES;
+                _spaceshipSprite.physicsBody.friction = 0;
+                _spaceshipSprite.physicsBody.categoryBitMask = playerCategory;
+                _spaceshipSprite.physicsBody.collisionBitMask = blokCategory;
                 
                 self.addChild(_spaceshipSprite)
             }

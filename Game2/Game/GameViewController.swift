@@ -1,8 +1,8 @@
 //
 //  GameViewController.swift
-//  Game
+//  Game2
 //
-//  Created by Luke Quigley on 9/18/14.
+//  Created by Luke Q on 9/18/14.
 //  Copyright (c) 2014 Quigley. All rights reserved.
 //
 
@@ -27,28 +27,40 @@ extension SKNode {
 
 class GameViewController: UIViewController {
 
-    @IBOutlet weak var gameView:SKView!
-    
-    required init(coder:NSCoder) {
-        super.init(coder:coder)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         if let scene = GameScene.unarchiveFromFile("GameScene") as? GameScene {
+            // Configure the view.
+            let skView = self.view as SKView
+            skView.showsFPS = true
+            skView.showsNodeCount = true
+            
             /* Sprite Kit applies additional optimizations to improve rendering performance */
-            self.gameView.ignoresSiblingOrder = true
+            skView.ignoresSiblingOrder = true
             
             /* Set the scale mode to scale to fit the window */
             scene.scaleMode = .AspectFill
             
-            self.gameView.presentScene(scene)
+            skView.presentScene(scene)
         }
     }
 
     override func shouldAutorotate() -> Bool {
         return false
+    }
+
+    override func supportedInterfaceOrientations() -> Int {
+        if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
+            return Int(UIInterfaceOrientationMask.AllButUpsideDown.toRaw())
+        } else {
+            return Int(UIInterfaceOrientationMask.All.toRaw())
+        }
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Release any cached data, images, etc that aren't in use.
     }
 
     override func prefersStatusBarHidden() -> Bool {
