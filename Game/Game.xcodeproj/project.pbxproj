@@ -17,6 +17,7 @@
 		96C51D3019CB422300E0DF15 /* GameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C51D2F19CB422300E0DF15 /* GameTests.swift */; };
 		96C51D3B19CB423200E0DF15 /* GVBalloon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C51D3A19CB423200E0DF15 /* GVBalloon.swift */; };
 		96C51D3F19CB5DD700E0DF15 /* GVBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C51D3E19CB5DD700E0DF15 /* GVBackground.swift */; };
+		96C51D4319CB70FD00E0DF15 /* GVCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C51D4219CB70FD00E0DF15 /* GVCloud.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		96C51D2F19CB422300E0DF15 /* GameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTests.swift; sourceTree = "<group>"; };
 		96C51D3A19CB423200E0DF15 /* GVBalloon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GVBalloon.swift; sourceTree = "<group>"; };
 		96C51D3E19CB5DD700E0DF15 /* GVBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GVBackground.swift; sourceTree = "<group>"; };
+		96C51D4219CB70FD00E0DF15 /* GVCloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GVCloud.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 			children = (
 				96C51D3E19CB5DD700E0DF15 /* GVBackground.swift */,
 				96C51D3A19CB423200E0DF15 /* GVBalloon.swift */,
+				96C51D4219CB70FD00E0DF15 /* GVCloud.swift */,
 			);
 			path = Nodes;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 			files = (
 				96C51D1A19CB422300E0DF15 /* GameScene.swift in Sources */,
 				96C51D1C19CB422300E0DF15 /* GameViewController.swift in Sources */,
+				96C51D4319CB70FD00E0DF15 /* GVCloud.swift in Sources */,
 				96C51D3B19CB423200E0DF15 /* GVBalloon.swift in Sources */,
 				96C51D3F19CB5DD700E0DF15 /* GVBackground.swift in Sources */,
 				96C51D1619CB422300E0DF15 /* AppDelegate.swift in Sources */,

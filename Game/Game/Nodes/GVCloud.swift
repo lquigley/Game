@@ -1,22 +1,30 @@
 //
-//  GVBalloon.swift
-//  Game2
+//  GVCloud.swift
+//  Game
 //
-//  Created by Luke Quigley on 9/18/14.
+//  Created by Luke Q on 9/18/14.
 //  Copyright (c) 2014 Quigley. All rights reserved.
 //
 
 import SpriteKit
 
-class GVBalloon: SKSpriteNode {
+class GVCloud: SKSpriteNode {
     
     convenience override init () {
-        let texture:SKTexture = SKTexture(imageNamed: "balloon")
+        //Random image of the three clouds
+        let diceRoll = Int(arc4random_uniform(3)) + 1
+        let imageName = NSString.localizedStringWithFormat("Cloud %d", diceRoll)
+        
+        let texture:SKTexture = SKTexture(imageNamed: imageName)
         self.init(texture: texture, color: SKColor.whiteColor(), size: texture.size())
         
         self.physicsBody = SKPhysicsBody(circleOfRadius: CGRectGetWidth(self.frame) / 2)
         self.physicsBody!.allowsRotation = true
         self.physicsBody!.density = 400
+        
+        //Random rotation to mix it up some more.
+        let rotation = CGFloat(rand())/CGFloat(RAND_MAX)*2.0
+        self.zRotation = rotation
     }
     
     override init(texture: SKTexture?, color: SKColor?, size: CGSize) {
@@ -26,4 +34,5 @@ class GVBalloon: SKSpriteNode {
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
+   
 }
