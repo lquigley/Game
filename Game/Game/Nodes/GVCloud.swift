@@ -2,7 +2,7 @@
 //  GVCloud.swift
 //  Game
 //
-//  Created by Luke Q on 9/18/14.
+//  Created by Luke Quigley on 9/18/14.
 //  Copyright (c) 2014 Quigley. All rights reserved.
 //
 
@@ -18,11 +18,13 @@ class GVCloud: SKSpriteNode {
         let texture:SKTexture = SKTexture(imageNamed: imageName)
         self.init(texture: texture, color: SKColor.whiteColor(), size: texture.size())
         
+        self.name = "GoodNode"
+        
         self.physicsBody = SKPhysicsBody(circleOfRadius: CGRectGetWidth(self.frame) / 2)
         self.physicsBody!.allowsRotation = true
         self.physicsBody!.density = 400
-        self.physicsBody!.collisionBitMask = kBalloonCategory
-        self.physicsBody!.categoryBitMask = kGoodSpriteCategory
+        self.physicsBody!.categoryBitMask = 0x1
+        self.physicsBody!.collisionBitMask = 0x1
         
         //Random rotation to mix it up some more.
         let rotation = CGFloat(rand())/CGFloat(RAND_MAX)*2.0

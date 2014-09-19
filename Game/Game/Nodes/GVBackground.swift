@@ -2,7 +2,7 @@
 //  GVBackground.swift
 //  Game
 //
-//  Created by Luke Q on 9/18/14.
+//  Created by Luke Quigley on 9/18/14.
 //  Copyright (c) 2014 Quigley. All rights reserved.
 //
 

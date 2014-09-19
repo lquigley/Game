@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9639EA5519CC988700F975CE /* GVBird.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9639EA5419CC988700F975CE /* GVBird.swift */; };
 		96C51D1619CB422300E0DF15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C51D1519CB422300E0DF15 /* AppDelegate.swift */; };
 		96C51D1819CB422300E0DF15 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 96C51D1719CB422300E0DF15 /* GameScene.sks */; };
 		96C51D1A19CB422300E0DF15 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C51D1919CB422300E0DF15 /* GameScene.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9639EA5419CC988700F975CE /* GVBird.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GVBird.swift; sourceTree = "<group>"; };
 		96C51D1019CB422300E0DF15 /* Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Game.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96C51D1419CB422300E0DF15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96C51D1519CB422300E0DF15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 			children = (
 				96C51D3E19CB5DD700E0DF15 /* GVBackground.swift */,
 				96C51D3A19CB423200E0DF15 /* GVBalloon.swift */,
+				9639EA5419CC988700F975CE /* GVBird.swift */,
 				96C51D4219CB70FD00E0DF15 /* GVCloud.swift */,
 				96C51D4C19CB871600E0DF15 /* GVGround.swift */,
 			);
@@ -245,6 +248,7 @@
 				96C51D1A19CB422300E0DF15 /* GameScene.swift in Sources */,
 				96C51D1C19CB422300E0DF15 /* GameViewController.swift in Sources */,
 				96C51D4319CB70FD00E0DF15 /* GVCloud.swift in Sources */,
+				9639EA5519CC988700F975CE /* GVBird.swift in Sources */,
 				96C51D3B19CB423200E0DF15 /* GVBalloon.swift in Sources */,
 				96C51D4B19CB821400E0DF15 /* GVConstants.swift in Sources */,
 				96C51D4D19CB871600E0DF15 /* GVGround.swift in Sources */,
@@ -372,6 +376,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = Game/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -382,6 +387,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = Game/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -441,6 +447,7 @@
 				96C51D3519CB422300E0DF15 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		96C51D3619CB422300E0DF15 /* Build configuration list for PBXNativeTarget "GameTests" */ = {
 			isa = XCConfigurationList;
@@ -449,6 +456,7 @@
 				96C51D3819CB422300E0DF15 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

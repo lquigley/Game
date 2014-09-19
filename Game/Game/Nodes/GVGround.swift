@@ -2,7 +2,7 @@
 //  GVGround.swift
 //  Game
 //
-//  Created by Luke Q on 9/18/14.
+//  Created by Luke Quigley on 9/18/14.
 //  Copyright (c) 2014 Quigley. All rights reserved.
 //
 
@@ -13,6 +13,9 @@ class GVGround: SKSpriteNode {
     convenience override init () {
         let texture:SKTexture = SKTexture(imageNamed: "Ground")
         self.init(texture: texture, color: SKColor.whiteColor(), size: texture.size())
+        
+        self.physicsBody = SKPhysicsBody()
+        self.physicsBody?.affectedByGravity = true
     }
     
     override init(texture: SKTexture?, color: SKColor?, size: CGSize) {
