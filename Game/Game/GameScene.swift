@@ -11,13 +11,18 @@ import SpriteKit
 class GameScene: SKScene, SKPhysicsContactDelegate, GVBalloonDelegate {
     
     var _speed:Int = 1
-    var _lastSecond:CFTimeInterval = 0.0
+    var _lastBirdSecond:CFTimeInterval = 0.0
+    var _lastCloudSecond:CFTimeInterval = 0.0
     var _sameTouch:Bool = false
     var _score:Int = 0
+    var _started:Bool = false
     
     var backgroundView:GVBackground?
     var balloon:GVBalloon = GVBalloon()
     var ground:GVGround = GVGround()
+    var goodLuckNode:SKLabelNode = SKLabelNode()
+    var scoreLabel:SKLabelNode = SKLabelNode()
+    var highScoreLabel:SKLabelNode = SKLabelNode()
     
     override func didMoveToView(view: SKView) {
         let midPoint = CGPointMake(CGRectGetMidX(self.view!.bounds), CGRectGetMidY(self.view!.bounds))
@@ -29,11 +34,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GVBalloonDelegate {
         self.backgroundView!.position = midPoint
         self.addChild(self.backgroundView!)
         
+        self.highScoreLabel.position = CGPointMake(CGRectGetMidX(self.view!.bounds), 500)
+        let highestScore = NSUserDefaults.standardUserDefaults().integerForKey("HighScore")
+        self.highScoreLabel.text = "\(highestScore)"
+        //self.addChild(highScoreLabel)
+        
+        self.scoreLabel.position = CGPointMake(CGRectGetMidX(self.view!.bounds), 480)
+        self.addChild(self.scoreLabel)
+        
         self.reset()
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         self.balloon.physicsBody!.resting = true
+        
+        if !_started {
+            self.start()
+            _started = true
+        }
         self.assessTouches(touches)
     }
     
@@ -66,7 +84,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GVBalloonDelegate {
             }
             
             let action = SKAction.moveTo(location, duration: 0.0)
-
+            
             self.balloon.runAction(action, completion: { () -> Void in
                 self.balloon.physicsBody!.resting = true
             })
@@ -80,21 +98,31 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GVBalloonDelegate {
                 node.removeFromParent()
             }
         })
+        self.enumerateChildNodesWithName("BadNode", usingBlock: {
+            (node:SKNode!, stop: UnsafeMutablePointer <ObjCBool>) -> Void in
+            if CGRectGetMaxY(node.frame) < 0 {
+                node.removeFromParent()
+            }
+        })
         
         if _speed == 1 {
             // One cloud/two second
-            if currentTime - _lastSecond > 2 {
+            if currentTime - _lastCloudSecond > 0.5 {
                 self.addCloud()
-                _lastSecond = currentTime
+                _lastCloudSecond = currentTime
             }
-            _score += 100
-        } else if _speed == 2 {
-            // One cloud/second
-            if currentTime - _lastSecond > 1 {
-                self.addCloud()
+            // One cloud/two second
+            if currentTime - _lastBirdSecond > 1 {
+                self.addBird()
+                _lastBirdSecond = currentTime
             }
-            _score += 100
+            
+            if _started {
+                _score += 1
+            }
         }
+        
+        self.scoreLabel.text = "\(_score)"
     }
     
     func addCloud() {
@@ -104,15 +132,28 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GVBalloonDelegate {
         self.addChild(cloud)
     }
     
+    func addBird() {
+        let bird = GVBird()
+        bird.position = CGPointMake(0, CGRectGetHeight(self.view!.frame))
+        self.addChild(bird)
+    }
+    
     func reset() {
+        self.enumerateChildNodesWithName("GoodNode", usingBlock: {
+            (node:SKNode!, stop: UnsafeMutablePointer <ObjCBool>) -> Void in
+            node.removeFromParent()
+        })
+        self.enumerateChildNodesWithName("BadNode", usingBlock: {
+            (node:SKNode!, stop: UnsafeMutablePointer <ObjCBool>) -> Void in
+            node.removeFromParent()
+        })
+        
         let midPoint = CGPointMake(CGRectGetMidX(self.view!.bounds), CGRectGetMidY(self.view!.bounds))
         
-        self.physicsWorld.gravity = CGVectorMake(0, -1)
-        
         //Set up ground
-        self.ground.position = CGPointMake(CGRectGetMidX(self.view!.bounds), self.ground.size.height / 2)
-        self.ground.restoreUserActivityState(<#activity: NSUserActivity#>)
-        NSLog("%@", self.ground)
+        let action:SKAction = SKAction.moveTo(CGPointMake(160, 60), duration: 0)
+        self.ground.runAction(action)
+        self.ground.physicsBody?.resting = true
         if self.ground.parent == nil {
             self.addChild(self.ground)
         }
@@ -125,7 +166,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GVBalloonDelegate {
             self.addChild(self.balloon)
         }
         
+        goodLuckNode.text = "Good Luck!"
+        goodLuckNode.position = midPoint
+        if goodLuckNode.parent == nil {
+            self.addChild(goodLuckNode)
+        }
+        
+        let highestScore = NSUserDefaults.standardUserDefaults().integerForKey("HighScore")
+        if highestScore > _score {
+            NSUserDefaults.standardUserDefaults().setInteger(_score, forKey: "HighScore")
+            NSUserDefaults.standardUserDefaults().synchronize()
+        }
+        
         _score = 0
+    }
+    
+    func start() {
+        goodLuckNode.removeFromParent()
+        self.physicsWorld.gravity = CGVectorMake(0, -1)
     }
     
     func didBeginContact(contact: SKPhysicsContact) {
@@ -133,19 +191,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GVBalloonDelegate {
         let nodeB = contact.bodyB.node
         if nodeA!.isKindOfClass(GVBalloon) {
             if nodeB!.isKindOfClass(GVCloud) {
-                self.balloon.increaseSize()
-            } else if nodeB!.isKindOfClass(GVBird) {
                 self.balloon.decreaseSize()
+            } else if nodeB!.isKindOfClass(GVBird) {
+                self.balloon.increaseSize()
             }
             nodeB?.removeFromParent()
-        }
-        
-        if self.balloon.xScale > 4 {
-            self.reset()
         }
     }
     
     func balloonExploded(balloon: GVBalloon) {
+        balloon.reset()
         self.reset()
     }
 }

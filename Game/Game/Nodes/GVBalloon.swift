@@ -62,7 +62,7 @@ class GVBalloon: SKSpriteNode {
         if sizeLevel < 1 {
             self.delegate?.balloonExploded(self)
         } else {
-            let action:SKAction = SKAction.scaleBy(-1.3, duration: 1)
+            let action:SKAction = SKAction.scaleBy(0.769, duration: 1)
             self.runAction(action)
         }
     }
