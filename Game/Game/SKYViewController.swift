@@ -9,22 +9,6 @@
 import UIKit
 import SpriteKit
 
-extension SKNode {
-    class func unarchiveFromFile(file : NSString) -> SKNode? {
-        if let path = NSBundle.mainBundle().pathForResource(file, ofType: "sks") {
-            var sceneData = NSData(contentsOfFile:path, options: .DataReadingMappedIfSafe, error: nil)
-            var archiver = NSKeyedUnarchiver(forReadingWithData: sceneData!)
-            
-            archiver.setClass(self.classForKeyedUnarchiver(), forClassName: "SKScene")
-            let scene = archiver.decodeObjectForKey(NSKeyedArchiveRootObjectKey) as SKYGameScene
-            archiver.finishDecoding()
-            return scene
-        } else {
-            return nil
-        }
-    }
-}
-
 class SKYViewController: UIViewController, SKYGameSceneScoreDelegate {
     
     @IBOutlet weak var gameView:SKView!
@@ -98,16 +82,12 @@ class SKYViewController: UIViewController, SKYGameSceneScoreDelegate {
     //Game scene delegate
     
     func updatedScore(score: Int) {
-        self.scoreLabel.text = SKYNumberFormatter.thousandFormatter.stringFromNumber(score)
+        self.scoreLabel.text = NSNumberFormatter.thousandFormatter.stringFromNumber(score)
     }
     
     func startedGame() {
         //Remove good luck label.
         timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "updateTime", userInfo: nil, repeats: true)
-        
-        self.noteLabel.alpha = 1.0
-        self.noteLabel.center = self.view.center
-        self.view.insertSubview(self.noteLabel, aboveSubview: self.backgroundImageView)
     }
     
     func endedGame() {

@@ -15,7 +15,7 @@ protocol SKYBalloonDelegate {
 class SKYBalloon: SKSpriteNode {
     
     var delegate:SKYBalloonDelegate?
-    var sizeLevel:Int = 1
+    var sizeLevel:Int = 2
     
     convenience override init () {
         let texture:SKTexture = SKTexture(imageNamed: "Balloon")
@@ -31,7 +31,7 @@ class SKYBalloon: SKSpriteNode {
     }
     
     func reset() {
-        sizeLevel = 1
+        sizeLevel = 2
         self.physicsBody?.resting = true
         self.xScale = CGFloat(sizeLevel)
         self.yScale = CGFloat(sizeLevel)
@@ -48,7 +48,7 @@ class SKYBalloon: SKSpriteNode {
     func increaseSize() {
         sizeLevel++
         
-        if (sizeLevel > 4) {
+        if (sizeLevel > 5) {
             self.delegate?.balloonExploded(self)
         } else {
             let action:SKAction = SKAction.scaleBy(1.3, duration: 1)

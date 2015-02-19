@@ -192,7 +192,7 @@ class SKYGameScene: SKScene, SKPhysicsContactDelegate, SKYBalloonDelegate {
         let nodeA = contact.bodyA.node
         let nodeB = contact.bodyB.node
         if nodeA!.isKindOfClass(SKYBalloon) {
-            if nodeB!.isKindOfClass(SKYCloud) {
+            if nodeB != nil && nodeB!.isKindOfClass(SKYCloud) {
                 self.balloon.decreaseSize()
             } else if nodeB!.isKindOfClass(SKYBird) {
                 self.balloon.increaseSize()

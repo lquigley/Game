@@ -2,13 +2,13 @@
 //  UIColor.swift
 //  Sky High
 //
-//  Created by Luke Q on 2/19/15.
+//  Created by Luke Quigley on 2/19/15.
 //  Copyright (c) 2015 VOKAL. All rights reserved.
 //
 
 import UIKit
 
-class SKYColor: UIColor {
+extension UIColor {
     class var levelOneTopColor: UIColor {
         return UIColor(red: 46/255, green: 195/255, blue: 229/255, alpha: 1.0)
     }

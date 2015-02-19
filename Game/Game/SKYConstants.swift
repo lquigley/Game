@@ -6,6 +6,16 @@
 //  Copyright (c) 2014 Quigley. All rights reserved.
 //
 
-let kBalloonCategory:UInt32     = 0x1;
-let kGoodSpriteCategory:UInt32  = 0x2;
-let kBadSpriteCategory:UInt32   = 0x3;
+struct SKYCollisionGroups {
+    var balloonCategory:UInt32     = 0x1;
+    var goodSpriteCategory:UInt32  = 0x2;
+    var badSpriteCategory:UInt32   = 0x3;
+}
+
+class SKYUserDefaultKeys {
+    class var highScore:String {
+        get {
+            return "HighScore"
+        }
+    }
+}
