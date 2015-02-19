@@ -30,7 +30,7 @@ class SKYViewController: UIViewController, SKYGameSceneScoreDelegate {
     @IBOutlet weak var gameView:SKView!
     @IBOutlet weak var timeLabel:UILabel!
     @IBOutlet weak var scoreLabel:UILabel!
-    @IBOutlet weak var gameScene:SKYGameScene!
+    @IBOutlet var noteLabel:UILabel!
     @IBOutlet weak var backgroundImageView:SKYBackground!
     
     var timer:NSTimer!
@@ -83,10 +83,14 @@ class SKYViewController: UIViewController, SKYGameSceneScoreDelegate {
         self.timeLabel.text = "\(strMinutes):\(strSeconds)"
         
         if (seconds > 3) {
-            self.
+            UIView.transitionWithView(self.view, duration: 1.0, options: nil, animations: {
+                self.noteLabel.alpha = 0.0
+            }, completion: { finished in
+                self.noteLabel.removeFromSuperview()
+            })
         }
     }
-
+    
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
     }
@@ -100,6 +104,10 @@ class SKYViewController: UIViewController, SKYGameSceneScoreDelegate {
     func startedGame() {
         //Remove good luck label.
         timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "updateTime", userInfo: nil, repeats: true)
+        
+        self.noteLabel.alpha = 1.0
+        self.noteLabel.center = self.view.center
+        self.view.insertSubview(self.noteLabel, aboveSubview: self.backgroundImageView)
     }
     
     func endedGame() {

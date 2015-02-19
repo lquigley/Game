@@ -31,8 +31,8 @@ class SKYBackground: UIImageView {
         
         let gradient = CAGradientLayer()
         gradient.frame = CGRectMake(0, 0, frame.size.width, frame.size.height)
-        let topColor:CGColor = UIColor(red: 46/255, green: 195/255, blue: 229/255, alpha: 1.0).CGColor
-        let bottomColor:CGColor = UIColor(red: 133/255, green: 211/255, blue: 229/155, alpha: 1.0).CGColor
+        let topColor:CGColor = SKYColor.levelOneTopColor.CGColor
+        let bottomColor:CGColor = SKYColor.levelOneBottomColor.CGColor
         gradient.colors = [topColor, bottomColor]
         gradient.renderInContext(context)
         

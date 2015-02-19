@@ -18,7 +18,7 @@ class SKYBalloon: SKSpriteNode {
     var sizeLevel:Int = 1
     
     convenience override init () {
-        let texture:SKTexture = SKTexture(imageNamed: "balloon")
+        let texture:SKTexture = SKTexture(imageNamed: "Balloon")
         self.init(texture: texture, color: SKColor.whiteColor(), size: texture.size())
         
         self.physicsBody = SKPhysicsBody(circleOfRadius: CGRectGetWidth(self.frame) / 2)

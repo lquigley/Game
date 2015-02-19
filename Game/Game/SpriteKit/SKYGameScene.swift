@@ -69,6 +69,9 @@ class SKYGameScene: SKScene, SKPhysicsContactDelegate, SKYBalloonDelegate {
         for touch: AnyObject in touches {
             var location = touch.locationInNode(self)
             
+            //Offset the finger to 100 points below the balloon.
+            location.y += 100
+            
             //Keep it in bounds
             let screenSize = self.view!.bounds;
             if location.x < 0 {
