@@ -14,7 +14,7 @@ import QuartzCore
 class GVBackground: SKSpriteNode {
     
     convenience init (size:CGSize) {
-        UIGraphicsBeginImageContextWithOptions(size, 1, 1)
+        UIGraphicsBeginImageContextWithOptions(size, true, 1)
         let context = UIGraphicsGetCurrentContext()
         
         let gradient = CAGradientLayer()
@@ -35,7 +35,7 @@ class GVBackground: SKSpriteNode {
         super.init(texture: texture, color:color, size:size)
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
    

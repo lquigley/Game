@@ -37,7 +37,7 @@ class GVBird: SKSpriteNode {
         super.init(texture: texture, color:color, size:size)
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
 }
