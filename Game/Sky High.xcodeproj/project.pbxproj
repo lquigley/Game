@@ -15,6 +15,7 @@
 		96739A881A96498D00730A0D /* SKYCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96739A811A96498D00730A0D /* SKYCloud.swift */; };
 		96739A891A96498D00730A0D /* SKYGround.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96739A821A96498D00730A0D /* SKYGround.swift */; };
 		96739A8C1A9649B500730A0D /* SKYBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96739A8B1A9649B500730A0D /* SKYBackground.swift */; };
+		96739A901A965CAE00730A0D /* NSNumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96739A8F1A965CAE00730A0D /* NSNumberFormatter.swift */; };
 		96C51D1619CB422300E0DF15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C51D1519CB422300E0DF15 /* AppDelegate.swift */; };
 		96C51D1C19CB422300E0DF15 /* SKYViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C51D1B19CB422300E0DF15 /* SKYViewController.swift */; };
 		96C51D1F19CB422300E0DF15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96C51D1D19CB422300E0DF15 /* Main.storyboard */; };
@@ -31,6 +32,7 @@
 		96739A811A96498D00730A0D /* SKYCloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKYCloud.swift; sourceTree = "<group>"; };
 		96739A821A96498D00730A0D /* SKYGround.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKYGround.swift; sourceTree = "<group>"; };
 		96739A8B1A9649B500730A0D /* SKYBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKYBackground.swift; sourceTree = "<group>"; };
+		96739A8F1A965CAE00730A0D /* NSNumberFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSNumberFormatter.swift; sourceTree = "<group>"; };
 		96C51D1019CB422300E0DF15 /* Sky High.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sky High.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		96C51D1419CB422300E0DF15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96C51D1519CB422300E0DF15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +90,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		96739A8E1A965C9700730A0D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				96739A8F1A965CAE00730A0D /* NSNumberFormatter.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		96C51D0719CB422300E0DF15 = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				96C51D1519CB422300E0DF15 /* AppDelegate.swift */,
+				96739A8E1A965C9700730A0D /* Extensions */,
 				96C51D4A19CB821400E0DF15 /* SKYConstants.swift */,
 				96C51D1B19CB422300E0DF15 /* SKYViewController.swift */,
 				96C51D2219CB422300E0DF15 /* LaunchScreen.xib */,
@@ -209,6 +220,7 @@
 				96C51D1619CB422300E0DF15 /* AppDelegate.swift in Sources */,
 				96739A8C1A9649B500730A0D /* SKYBackground.swift in Sources */,
 				96739A881A96498D00730A0D /* SKYCloud.swift in Sources */,
+				96739A901A965CAE00730A0D /* NSNumberFormatter.swift in Sources */,
 				96739A891A96498D00730A0D /* SKYGround.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -252,6 +264,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -272,6 +285,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -294,7 +308,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: VOKAL LLC (TZPBQT6RZA)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: VOKAL LLC (TZPBQT6RZA)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -307,6 +322,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "50922121-7871-4997-b2aa-523a320f6a91";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -320,6 +336,7 @@
 				INFOPLIST_FILE = Game/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "Sky High";
+				PROVISIONING_PROFILE = "67f78171-1952-40ca-9b5a-0ecc44136f28";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -328,10 +345,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: VOKAL LLC (TZPBQT6RZA)";
 				INFOPLIST_FILE = Game/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "Sky High";
+				PROVISIONING_PROFILE = "50922121-7871-4997-b2aa-523a320f6a91";
 			};
 			name = Release;
 		};

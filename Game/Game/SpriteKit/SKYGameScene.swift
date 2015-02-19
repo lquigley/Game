@@ -91,37 +91,37 @@ class SKYGameScene: SKScene, SKPhysicsContactDelegate, SKYBalloonDelegate {
     }
     
     override func update(currentTime: CFTimeInterval) {
-        self.enumerateChildNodesWithName("GoodNode", usingBlock: {
-            (node:SKNode!, stop: UnsafeMutablePointer <ObjCBool>) -> Void in
-            if CGRectGetMaxY(node.frame) < 0 {
-                node.removeFromParent()
-            }
-        })
-        self.enumerateChildNodesWithName("BadNode", usingBlock: {
-            (node:SKNode!, stop: UnsafeMutablePointer <ObjCBool>) -> Void in
-            if CGRectGetMaxY(node.frame) < 0 {
-                node.removeFromParent()
-            }
-        })
-        
-        if _speed == 1 {
-            // One cloud/two second
-            if currentTime - _lastCloudSecond > 0.5 {
-                self.addCloud()
-                _lastCloudSecond = currentTime
-            }
-            // One cloud/two second
-            if currentTime - _lastBirdSecond > 1 {
-                self.addBird()
-                _lastBirdSecond = currentTime
-            }
+        if (_started) {
+            self.enumerateChildNodesWithName("GoodNode", usingBlock: {
+                (node:SKNode!, stop: UnsafeMutablePointer <ObjCBool>) -> Void in
+                if CGRectGetMaxY(node.frame) < 0 {
+                    node.removeFromParent()
+                }
+            })
+            self.enumerateChildNodesWithName("BadNode", usingBlock: {
+                (node:SKNode!, stop: UnsafeMutablePointer <ObjCBool>) -> Void in
+                if CGRectGetMaxY(node.frame) < 0 {
+                    node.removeFromParent()
+                }
+            })
             
-            if _started {
+            if _speed == 1 {
+                // One cloud/two second
+                if currentTime - _lastCloudSecond > 0.5 {
+                    self.addCloud()
+                    _lastCloudSecond = currentTime
+                }
+                // One cloud/two second
+                if currentTime - _lastBirdSecond > 1 {
+                    self.addBird()
+                    _lastBirdSecond = currentTime
+                }
+                
                 _score += 1
             }
+            
+            self.scoreDelegate?.updatedScore(_score)
         }
-        
-        self.scoreDelegate?.updatedScore(_score)
     }
     
     func addCloud() {
@@ -138,6 +138,9 @@ class SKYGameScene: SKScene, SKPhysicsContactDelegate, SKYBalloonDelegate {
     }
     
     func reset() {
+        _started = false
+        self.physicsWorld.gravity = CGVectorMake(0, 0)
+        
         self.enumerateChildNodesWithName("GoodNode", usingBlock: {
             (node:SKNode!, stop: UnsafeMutablePointer <ObjCBool>) -> Void in
             node.removeFromParent()
@@ -147,7 +150,7 @@ class SKYGameScene: SKScene, SKPhysicsContactDelegate, SKYBalloonDelegate {
             node.removeFromParent()
         })
         
-        let midPoint = CGPointMake(CGRectGetMidX(self.view!.bounds), CGRectGetMidY(self.view!.bounds))
+        let midPoint = CGPointMake(CGRectGetMidX(self.view!.bounds) / 2, CGRectGetMidY(self.view!.bounds) / 2)
         
         //Set up ground
         let action:SKAction = SKAction.moveTo(CGPointMake(160, 60), duration: 0)

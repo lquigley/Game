@@ -67,8 +67,9 @@ class SKYViewController: UIViewController, SKYGameSceneScoreDelegate {
     }
     
     func resetTimer() {
-        seconds = 0
+        seconds = -1
         timer?.invalidate()
+        updateTime()
     }
     
     func updateTime() {
@@ -80,6 +81,10 @@ class SKYViewController: UIViewController, SKYGameSceneScoreDelegate {
         let strSeconds = actualSeconds > 9 ? String(actualSeconds) : "0" + String(actualSeconds)
         
         self.timeLabel.text = "\(strMinutes):\(strSeconds)"
+        
+        if (seconds > 3) {
+            self.
+        }
     }
 
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -89,7 +94,7 @@ class SKYViewController: UIViewController, SKYGameSceneScoreDelegate {
     //Game scene delegate
     
     func updatedScore(score: Int) {
-        self.scoreLabel.text = "\(score)"
+        self.scoreLabel.text = SKYNumberFormatter.thousandFormatter.stringFromNumber(score)
     }
     
     func startedGame() {
