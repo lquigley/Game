@@ -13,8 +13,8 @@ class SKYStartViewController: UIViewController {
     @IBOutlet weak var highScoreLabel:UILabel!
     @IBOutlet weak var goButton:UIButton!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         
         self.highScoreLabel.text = "\(NSUserDefaults.standardUserDefaults().integerForKey(SKYUserDefaultKeys.highScore))"
     }
@@ -28,6 +28,6 @@ class SKYStartViewController: UIViewController {
     }
     
     @IBAction func goButtonSelected() {
-        self.performSegueWithIdentifier("StartToGoSegue", sender: self)
+        self.performSegueWithIdentifier(SKYSegueIdentifiers.startToGoSegue, sender: self)
     }
 }

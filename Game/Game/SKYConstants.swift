@@ -19,3 +19,11 @@ class SKYUserDefaultKeys {
         }
     }
 }
+
+class SKYSegueIdentifiers {
+    class var startToGoSegue:String {
+        get {
+            return "StartToGoSegue"
+        }
+    }
+}
