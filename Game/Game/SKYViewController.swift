@@ -91,6 +91,6 @@ class SKYViewController: UIViewController, SKYGameSceneScoreDelegate {
     }
     
     func endedGame() {
-        resetTimer()
+        self.navigationController?.popViewControllerAnimated(false)
     }
 }

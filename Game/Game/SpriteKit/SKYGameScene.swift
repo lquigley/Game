@@ -156,7 +156,7 @@ class SKYGameScene: SKScene, SKPhysicsContactDelegate, SKYBalloonDelegate {
         let midPoint = CGPointMake(CGRectGetMidX(self.view!.bounds) / 2, CGRectGetMidY(self.view!.bounds) / 2)
         
         //Set up ground
-        let action:SKAction = SKAction.moveTo(CGPointMake(160, 60), duration: 0)
+        let action:SKAction = SKAction.moveTo(CGPointMake(190, 60), duration: 0)
         self.ground.runAction(action)
         self.ground.physicsBody?.resting = true
         if self.ground.parent == nil {
@@ -171,14 +171,13 @@ class SKYGameScene: SKScene, SKPhysicsContactDelegate, SKYBalloonDelegate {
             self.addChild(self.balloon)
         }
         
-        let highestScore = NSUserDefaults.standardUserDefaults().integerForKey("HighScore")
+        let highestScore = NSUserDefaults.standardUserDefaults().integerForKey(SKYUserDefaultKeys.highScore)
         if _score > highestScore {
-            NSUserDefaults.standardUserDefaults().setInteger(_score, forKey: "HighScore")
+            NSUserDefaults.standardUserDefaults().setInteger(_score, forKey: SKYUserDefaultKeys.highScore)
             NSUserDefaults.standardUserDefaults().synchronize()
         }
         
         self.scoreDelegate?.updatedScore(_score)
-        self.scoreDelegate?.endedGame()
         
         _score = 0
     }
@@ -194,7 +193,7 @@ class SKYGameScene: SKScene, SKPhysicsContactDelegate, SKYBalloonDelegate {
         if nodeA!.isKindOfClass(SKYBalloon) {
             if nodeB != nil && nodeB!.isKindOfClass(SKYCloud) {
                 self.balloon.decreaseSize()
-            } else if nodeB!.isKindOfClass(SKYBird) {
+            } else if nodeB != nil && nodeB!.isKindOfClass(SKYBird) {
                 self.balloon.increaseSize()
             }
             nodeB?.removeFromParent()
@@ -204,5 +203,6 @@ class SKYGameScene: SKScene, SKPhysicsContactDelegate, SKYBalloonDelegate {
     func balloonExploded(balloon: SKYBalloon) {
         balloon.reset()
         self.reset()
+        self.scoreDelegate?.endedGame()
     }
 }
