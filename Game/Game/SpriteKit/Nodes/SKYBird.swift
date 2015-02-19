@@ -1,34 +1,36 @@
 //
-//  GVCloud.swift
-//  Game
+//  SKYBird.swift
+//  Sky High
 //
-//  Created by Luke Quigley on 9/18/14.
+//  Created by Luke Q on 9/19/14.
 //  Copyright (c) 2014 Quigley. All rights reserved.
 //
 
 import SpriteKit
 
-class GVCloud: SKSpriteNode {
+class SKYBird: SKSpriteNode {
     
     convenience override init () {
-        //Random image of the three clouds
-        let diceRoll = Int(arc4random_uniform(3)) + 1
-        let imageName = NSString.localizedStringWithFormat("Cloud %d", diceRoll)
+        //Random image of the two birds
+        let diceRoll = Int(arc4random_uniform(2)) + 1
+        let imageName = NSString.localizedStringWithFormat("Bird %d", diceRoll)
         
         let texture:SKTexture = SKTexture(imageNamed: imageName)
         self.init(texture: texture, color: SKColor.whiteColor(), size: texture.size())
         
-        self.name = "GoodNode"
+        self.name = "BadNode"
         
         self.physicsBody = SKPhysicsBody(circleOfRadius: CGRectGetWidth(self.frame) / 2)
         self.physicsBody!.allowsRotation = true
         self.physicsBody!.density = 400
         self.physicsBody!.categoryBitMask = 0x1
         self.physicsBody!.collisionBitMask = 0x1
+        self.physicsBody?.velocity = CGVectorMake(80, 0)
         
-        //Random rotation to mix it up some more.
-        let rotation = CGFloat(rand())/CGFloat(RAND_MAX)*2.0
-        self.zRotation = rotation
+        let directionRoll = Int(arc4random_uniform(1))
+        if directionRoll == 0 {
+            self.xScale = -1
+        }
     }
     
     override init(texture: SKTexture?, color: SKColor?, size: CGSize) {

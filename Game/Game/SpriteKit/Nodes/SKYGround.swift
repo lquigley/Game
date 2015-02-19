@@ -1,6 +1,6 @@
 //
-//  GVGround.swift
-//  Game
+//  SKYGround.swift
+//  Sky High
 //
 //  Created by Luke Quigley on 9/18/14.
 //  Copyright (c) 2014 Quigley. All rights reserved.
@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class GVGround: SKSpriteNode {
+class SKYGround: SKSpriteNode {
     
     convenience override init () {
         let texture:SKTexture = SKTexture(imageNamed: "Ground")

@@ -1,0 +1,362 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		96739A751A963FA800730A0D /* Abel-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 96739A731A963FA800730A0D /* Abel-Regular.ttf */; };
+		96739A761A963FA800730A0D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96739A741A963FA800730A0D /* Images.xcassets */; };
+		96739A841A96498D00730A0D /* SKYGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96739A7C1A96498D00730A0D /* SKYGameScene.swift */; };
+		96739A861A96498D00730A0D /* SKYBalloon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96739A7F1A96498D00730A0D /* SKYBalloon.swift */; };
+		96739A871A96498D00730A0D /* SKYBird.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96739A801A96498D00730A0D /* SKYBird.swift */; };
+		96739A881A96498D00730A0D /* SKYCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96739A811A96498D00730A0D /* SKYCloud.swift */; };
+		96739A891A96498D00730A0D /* SKYGround.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96739A821A96498D00730A0D /* SKYGround.swift */; };
+		96739A8C1A9649B500730A0D /* SKYBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96739A8B1A9649B500730A0D /* SKYBackground.swift */; };
+		96C51D1619CB422300E0DF15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C51D1519CB422300E0DF15 /* AppDelegate.swift */; };
+		96C51D1C19CB422300E0DF15 /* SKYViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C51D1B19CB422300E0DF15 /* SKYViewController.swift */; };
+		96C51D1F19CB422300E0DF15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96C51D1D19CB422300E0DF15 /* Main.storyboard */; };
+		96C51D2419CB422300E0DF15 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96C51D2219CB422300E0DF15 /* LaunchScreen.xib */; };
+		96C51D4B19CB821400E0DF15 /* SKYConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C51D4A19CB821400E0DF15 /* SKYConstants.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		96739A731A963FA800730A0D /* Abel-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Abel-Regular.ttf"; sourceTree = "<group>"; };
+		96739A741A963FA800730A0D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		96739A7C1A96498D00730A0D /* SKYGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKYGameScene.swift; sourceTree = "<group>"; };
+		96739A7F1A96498D00730A0D /* SKYBalloon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKYBalloon.swift; sourceTree = "<group>"; };
+		96739A801A96498D00730A0D /* SKYBird.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKYBird.swift; sourceTree = "<group>"; };
+		96739A811A96498D00730A0D /* SKYCloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKYCloud.swift; sourceTree = "<group>"; };
+		96739A821A96498D00730A0D /* SKYGround.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKYGround.swift; sourceTree = "<group>"; };
+		96739A8B1A9649B500730A0D /* SKYBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKYBackground.swift; sourceTree = "<group>"; };
+		96C51D1019CB422300E0DF15 /* Sky High.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sky High.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		96C51D1419CB422300E0DF15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		96C51D1519CB422300E0DF15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		96C51D1B19CB422300E0DF15 /* SKYViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKYViewController.swift; sourceTree = "<group>"; };
+		96C51D1E19CB422300E0DF15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		96C51D2319CB422300E0DF15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		96C51D4A19CB821400E0DF15 /* SKYConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKYConstants.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		96C51D0D19CB422300E0DF15 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		96739A721A963FA800730A0D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				96739A731A963FA800730A0D /* Abel-Regular.ttf */,
+				96739A741A963FA800730A0D /* Images.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		96739A7A1A96498D00730A0D /* SpriteKit */ = {
+			isa = PBXGroup;
+			children = (
+				96739A7C1A96498D00730A0D /* SKYGameScene.swift */,
+				96739A7D1A96498D00730A0D /* Nodes */,
+			);
+			path = SpriteKit;
+			sourceTree = "<group>";
+		};
+		96739A7D1A96498D00730A0D /* Nodes */ = {
+			isa = PBXGroup;
+			children = (
+				96739A7F1A96498D00730A0D /* SKYBalloon.swift */,
+				96739A801A96498D00730A0D /* SKYBird.swift */,
+				96739A811A96498D00730A0D /* SKYCloud.swift */,
+				96739A821A96498D00730A0D /* SKYGround.swift */,
+			);
+			path = Nodes;
+			sourceTree = "<group>";
+		};
+		96739A8A1A96499400730A0D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				96739A8B1A9649B500730A0D /* SKYBackground.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		96C51D0719CB422300E0DF15 = {
+			isa = PBXGroup;
+			children = (
+				96C51D1219CB422300E0DF15 /* Sky High */,
+				96C51D1119CB422300E0DF15 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		96C51D1119CB422300E0DF15 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				96C51D1019CB422300E0DF15 /* Sky High.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		96C51D1219CB422300E0DF15 /* Sky High */ = {
+			isa = PBXGroup;
+			children = (
+				96C51D1519CB422300E0DF15 /* AppDelegate.swift */,
+				96C51D4A19CB821400E0DF15 /* SKYConstants.swift */,
+				96C51D1B19CB422300E0DF15 /* SKYViewController.swift */,
+				96C51D2219CB422300E0DF15 /* LaunchScreen.xib */,
+				96C51D1D19CB422300E0DF15 /* Main.storyboard */,
+				96739A721A963FA800730A0D /* Resources */,
+				96739A7A1A96498D00730A0D /* SpriteKit */,
+				96C51D1319CB422300E0DF15 /* Supporting Files */,
+				96739A8A1A96499400730A0D /* Views */,
+			);
+			name = "Sky High";
+			path = Game;
+			sourceTree = "<group>";
+		};
+		96C51D1319CB422300E0DF15 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				96C51D1419CB422300E0DF15 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		96C51D0F19CB422300E0DF15 /* Sky High */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 96C51D3319CB422300E0DF15 /* Build configuration list for PBXNativeTarget "Sky High" */;
+			buildPhases = (
+				96C51D0C19CB422300E0DF15 /* Sources */,
+				96C51D0D19CB422300E0DF15 /* Frameworks */,
+				96C51D0E19CB422300E0DF15 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Sky High";
+			productName = Game;
+			productReference = 96C51D1019CB422300E0DF15 /* Sky High.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		96C51D0819CB422300E0DF15 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = VOKAL;
+				TargetAttributes = {
+					96C51D0F19CB422300E0DF15 = {
+						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = TZPBQT6RZA;
+					};
+				};
+			};
+			buildConfigurationList = 96C51D0B19CB422300E0DF15 /* Build configuration list for PBXProject "Sky High" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 96C51D0719CB422300E0DF15;
+			productRefGroup = 96C51D1119CB422300E0DF15 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				96C51D0F19CB422300E0DF15 /* Sky High */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		96C51D0E19CB422300E0DF15 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96C51D2419CB422300E0DF15 /* LaunchScreen.xib in Resources */,
+				96739A761A963FA800730A0D /* Images.xcassets in Resources */,
+				96C51D1F19CB422300E0DF15 /* Main.storyboard in Resources */,
+				96739A751A963FA800730A0D /* Abel-Regular.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		96C51D0C19CB422300E0DF15 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96C51D1C19CB422300E0DF15 /* SKYViewController.swift in Sources */,
+				96739A871A96498D00730A0D /* SKYBird.swift in Sources */,
+				96739A861A96498D00730A0D /* SKYBalloon.swift in Sources */,
+				96C51D4B19CB821400E0DF15 /* SKYConstants.swift in Sources */,
+				96739A841A96498D00730A0D /* SKYGameScene.swift in Sources */,
+				96C51D1619CB422300E0DF15 /* AppDelegate.swift in Sources */,
+				96739A8C1A9649B500730A0D /* SKYBackground.swift in Sources */,
+				96739A881A96498D00730A0D /* SKYCloud.swift in Sources */,
+				96739A891A96498D00730A0D /* SKYGround.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		96C51D1D19CB422300E0DF15 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				96C51D1E19CB422300E0DF15 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		96C51D2219CB422300E0DF15 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				96C51D2319CB422300E0DF15 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		96C51D3119CB422300E0DF15 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		96C51D3219CB422300E0DF15 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		96C51D3419CB422300E0DF15 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = Game/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "Sky High";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		96C51D3519CB422300E0DF15 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = Game/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "Sky High";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		96C51D0B19CB422300E0DF15 /* Build configuration list for PBXProject "Sky High" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				96C51D3119CB422300E0DF15 /* Debug */,
+				96C51D3219CB422300E0DF15 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		96C51D3319CB422300E0DF15 /* Build configuration list for PBXNativeTarget "Sky High" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				96C51D3419CB422300E0DF15 /* Debug */,
+				96C51D3519CB422300E0DF15 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 96C51D0819CB422300E0DF15 /* Project object */;
+}

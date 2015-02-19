@@ -1,6 +1,6 @@
 //
-//  GVBalloon.swift
-//  Game2
+//  SKYBalloon.swift
+//  Sky High
 //
 //  Created by Luke Quigley on 9/18/14.
 //  Copyright (c) 2014 Quigley. All rights reserved.
@@ -8,13 +8,13 @@
 
 import SpriteKit
 
-protocol GVBalloonDelegate {
-    func balloonExploded(balloon:GVBalloon)
+protocol SKYBalloonDelegate {
+    func balloonExploded(balloon:SKYBalloon)
 }
 
-class GVBalloon: SKSpriteNode {
+class SKYBalloon: SKSpriteNode {
     
-    var delegate:GVBalloonDelegate?
+    var delegate:SKYBalloonDelegate?
     var sizeLevel:Int = 1
     
     convenience override init () {
