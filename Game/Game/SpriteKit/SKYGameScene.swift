@@ -231,7 +231,7 @@ class SKYGameScene: SKScene, SKPhysicsContactDelegate, SKYBalloonDelegate {
     }
     
     func start() {
-        physicsWorld.gravity = CGVectorMake(0, -2)
+        physicsWorld.gravity = CGVectorMake(0, -5)
         scoreDelegate?.startedGame()
     }
     
