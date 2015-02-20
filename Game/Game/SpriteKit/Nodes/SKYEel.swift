@@ -14,12 +14,17 @@ class SKYEel: SKYBaddie {
         let texture:SKTexture = SKTexture(imageNamed: "Night Eel")
         self.init(texture: texture, color: SKColor.whiteColor(), size: texture.size())
         
-        let directionRoll = Int(arc4random_uniform(2))
-        if directionRoll == 0 {
+        if self.direction == SKYBaddieDirection.Left {
             self.xScale = -1
-            self.physicsBody?.velocity = CGVectorMake(200, 20)
+            self.physicsBody?.velocity = CGVectorMake(velocity, 20)
         } else {
-            self.physicsBody?.velocity = CGVectorMake(-200, 20)
+            self.physicsBody?.velocity = CGVectorMake(-velocity, 20)
+        }
+    }
+    
+    override var velocity:CGFloat {
+        get {
+            return 200.0
         }
     }
 }

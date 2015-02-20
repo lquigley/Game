@@ -167,7 +167,7 @@ class SKYGameScene: SKScene, SKPhysicsContactDelegate, SKYBalloonDelegate {
         
         let yValueRoll = CGRectGetHeight(view!.frame) - CGFloat(arc4random_uniform(200))
         
-        if (baddie.xScale == -1) {
+        if (baddie.direction == SKYBaddieDirection.Left) {
             baddie.position = CGPointMake(0, yValueRoll)
         } else {
             baddie.position = CGPointMake(CGRectGetWidth(view!.frame), yValueRoll)

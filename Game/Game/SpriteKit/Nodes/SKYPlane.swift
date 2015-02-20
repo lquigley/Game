@@ -18,12 +18,17 @@ class SKYPlane: SKYBaddie {
         let texture:SKTexture = SKTexture(imageNamed: imageName)
         self.init(texture: texture, color: SKColor.whiteColor(), size: texture.size())
         
-        let directionRoll = Int(arc4random_uniform(2))
-        if directionRoll == 0 {
-            self.physicsBody?.velocity = CGVectorMake(-400, 20)
+        if direction == SKYBaddieDirection.Left {
+            self.physicsBody?.velocity = CGVectorMake(velocity, 20)
         } else {
             self.xScale = -1
-            self.physicsBody?.velocity = CGVectorMake(400, 20)
+            self.physicsBody?.velocity = CGVectorMake(-1 * velocity, 20)
+        }
+    }
+    
+    override var velocity:CGFloat {
+        get {
+            return 400.0
         }
     }
 }
