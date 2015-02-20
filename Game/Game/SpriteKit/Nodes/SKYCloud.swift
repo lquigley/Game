@@ -23,7 +23,7 @@ class SKYCloud: SKSpriteNode {
         self.physicsBody = SKPhysicsBody(circleOfRadius: CGRectGetWidth(self.frame) / 2)
         self.physicsBody!.allowsRotation = true
         self.physicsBody!.density = 400
-        self.physicsBody!.categoryBitMask = 0x1
+        self.physicsBody!.categoryBitMask = 0x2
         self.physicsBody!.collisionBitMask = 0x1
         
         //Random rotation to mix it up some more.

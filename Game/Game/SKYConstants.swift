@@ -10,6 +10,7 @@ struct SKYCollisionGroups {
     var balloonCategory:UInt32     = 0x1;
     var goodSpriteCategory:UInt32  = 0x2;
     var badSpriteCategory:UInt32   = 0x3;
+    var wallSpriteCategory:UInt32  = 0x4;
 }
 
 class SKYUserDefaultKeys {

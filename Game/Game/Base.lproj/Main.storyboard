@@ -13,13 +13,16 @@
             <string>Abel-Regular</string>
             <string>Abel-Regular</string>
             <string>Abel-Regular</string>
+            <string>Abel-Regular</string>
+            <string>Abel-Regular</string>
+            <string>Abel-Regular</string>
+            <string>Abel-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="H8Y-4Y-xtF">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yzt-a8-rhY" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController navigationBarHidden="YES" id="KKU-KS-fOo" sceneMemberID="viewController">
                     <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="9cn-Aj-f6y">
@@ -30,6 +33,7 @@
                         <segue destination="BZv-Gv-Hg3" kind="relationship" relationship="rootViewController" id="R8W-50-LCi"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yzt-a8-rhY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-723" y="321"/>
         </scene>
@@ -173,6 +177,63 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vQa-tJ-rT3" userLabel="Game View" customClass="SKView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Og8-vN-N9h">
+                                <rect key="frame" x="0.0" y="211" width="600" height="178"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GOOD LUCK!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="82W-wv-pei">
+                                        <rect key="frame" x="195" y="24" width="210" height="46"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="46" id="AnV-BO-YBM"/>
+                                            <constraint firstAttribute="width" constant="210" id="YXQ-2k-gnF"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Abel-Regular" family="Abel" pointSize="35"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SOME OBJECTS MAKE YOU POP" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BJ4-W9-s13">
+                                        <rect key="frame" x="174" y="78" width="252" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="252" id="OQQ-2N-AF9"/>
+                                            <constraint firstAttribute="height" constant="24" id="ZJZ-tf-d1C"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Abel-Regular" family="Abel" pointSize="20"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&amp;" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F88-nW-3Sj">
+                                        <rect key="frame" x="174" y="104" width="252" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="24" id="Mdo-AA-n3Q"/>
+                                            <constraint firstAttribute="width" constant="252" id="x8U-F2-e91"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Abel-Regular" family="Abel" pointSize="20"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SOME OBJECTS MAKE YOU SMALL" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZKS-z6-3rS">
+                                        <rect key="frame" x="171" y="129" width="259" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="259" id="409-nX-Da7"/>
+                                            <constraint firstAttribute="height" constant="24" id="IyD-Lq-KVz"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Abel-Regular" family="Abel" pointSize="20"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.40000000000000002" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerX" secondItem="ZKS-z6-3rS" secondAttribute="centerX" constant="-0.5" id="CFb-C6-Jbw"/>
+                                    <constraint firstItem="82W-wv-pei" firstAttribute="top" secondItem="Og8-vN-N9h" secondAttribute="top" constant="24" id="CgV-PN-m4O"/>
+                                    <constraint firstAttribute="centerX" secondItem="BJ4-W9-s13" secondAttribute="centerX" id="GaR-o7-aCm"/>
+                                    <constraint firstItem="F88-nW-3Sj" firstAttribute="top" secondItem="BJ4-W9-s13" secondAttribute="bottom" constant="2" id="Lwv-MW-qn6"/>
+                                    <constraint firstItem="ZKS-z6-3rS" firstAttribute="top" secondItem="F88-nW-3Sj" secondAttribute="bottom" constant="1" id="Unn-BM-bO7"/>
+                                    <constraint firstAttribute="centerX" secondItem="82W-wv-pei" secondAttribute="centerX" id="X86-WG-stl"/>
+                                    <constraint firstAttribute="centerX" secondItem="F88-nW-3Sj" secondAttribute="centerX" id="fnt-cs-dHZ"/>
+                                    <constraint firstItem="BJ4-W9-s13" firstAttribute="top" secondItem="82W-wv-pei" secondAttribute="bottom" constant="8" id="ypw-sJ-Nbd"/>
+                                    <constraint firstAttribute="height" constant="178" id="zgB-1E-jTK"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C9y-Wa-2lv" userLabel="HUD">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
                                 <subviews>
@@ -217,6 +278,7 @@
                         <constraints>
                             <constraint firstItem="b3d-qh-BLL" firstAttribute="top" secondItem="vQa-tJ-rT3" secondAttribute="bottom" id="2TL-R4-iyE"/>
                             <constraint firstAttribute="trailing" secondItem="cxy-Lu-kV8" secondAttribute="trailing" id="3UA-Cc-eLk"/>
+                            <constraint firstItem="Og8-vN-N9h" firstAttribute="centerY" secondItem="vQa-tJ-rT3" secondAttribute="centerY" id="A8F-kc-8yb"/>
                             <constraint firstItem="C9y-Wa-2lv" firstAttribute="top" secondItem="PCf-gQ-wO7" secondAttribute="bottom" constant="-20" id="DDK-A2-sMg"/>
                             <constraint firstAttribute="trailing" secondItem="vQa-tJ-rT3" secondAttribute="trailing" id="IsC-ba-sTz"/>
                             <constraint firstItem="C9y-Wa-2lv" firstAttribute="leading" secondItem="bdc-N1-crn" secondAttribute="leading" id="RQF-ye-9kL"/>
@@ -224,11 +286,13 @@
                             <constraint firstItem="cxy-Lu-kV8" firstAttribute="top" secondItem="PCf-gQ-wO7" secondAttribute="bottom" constant="-20" id="WHc-Qn-GSb"/>
                             <constraint firstItem="b3d-qh-BLL" firstAttribute="top" secondItem="cxy-Lu-kV8" secondAttribute="bottom" id="XGn-tU-MWD"/>
                             <constraint firstAttribute="centerYWithinMargins" secondItem="j7t-gq-kR0" secondAttribute="centerYWithinMargins" constant="50" id="bn0-nw-Sfv"/>
+                            <constraint firstItem="Og8-vN-N9h" firstAttribute="leading" secondItem="bdc-N1-crn" secondAttribute="leading" id="mdX-Q0-7i8"/>
                             <constraint firstItem="cxy-Lu-kV8" firstAttribute="leading" secondItem="bdc-N1-crn" secondAttribute="leading" id="sHk-j4-RVJ"/>
                             <constraint firstAttribute="trailing" secondItem="C9y-Wa-2lv" secondAttribute="trailing" id="tOa-2f-0be"/>
                             <constraint firstAttribute="centerXWithinMargins" secondItem="j7t-gq-kR0" secondAttribute="centerXWithinMargins" id="uhD-zA-TZn"/>
                             <constraint firstItem="vQa-tJ-rT3" firstAttribute="leading" secondItem="bdc-N1-crn" secondAttribute="leading" id="vU0-TC-s5a"/>
                             <constraint firstItem="b3d-qh-BLL" firstAttribute="top" secondItem="vQa-tJ-rT3" secondAttribute="bottom" id="z5K-uy-NDj"/>
+                            <constraint firstAttribute="trailing" secondItem="Og8-vN-N9h" secondAttribute="trailing" id="zcM-gc-TtJ"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
@@ -241,6 +305,8 @@
                     <connections>
                         <outlet property="backgroundImageView" destination="cxy-Lu-kV8" id="wWQ-DL-xxP"/>
                         <outlet property="gameView" destination="vQa-tJ-rT3" id="AMM-zb-d4X"/>
+                        <outlet property="goodLuckView" destination="Og8-vN-N9h" id="Ltz-Fi-gF7"/>
+                        <outlet property="navView" destination="C9y-Wa-2lv" id="0yY-0h-s7I"/>
                         <outlet property="noteLabel" destination="j7t-gq-kR0" id="Ru3-HK-3jG"/>
                         <outlet property="scoreLabel" destination="B3r-0w-bMN" id="e3A-vl-XQA"/>
                         <outlet property="timeLabel" destination="cJM-6e-sLX" id="zxx-20-Noz"/>

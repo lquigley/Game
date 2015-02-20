@@ -26,15 +26,15 @@ class SKYBalloon: SKSpriteNode {
         self.physicsBody!.density = 300
         self.physicsBody!.affectedByGravity = false;
         self.physicsBody!.categoryBitMask = 0x1
-        self.physicsBody!.collisionBitMask = 0x1
-        self.physicsBody!.contactTestBitMask = 0x1
+        self.physicsBody!.collisionBitMask = 0x2 | 0x3 | 0x4
+        self.physicsBody!.contactTestBitMask = 0x2 | 0x3
     }
     
     func reset() {
         sizeLevel = 2
         self.physicsBody?.resting = true
-        self.xScale = CGFloat(sizeLevel)
-        self.yScale = CGFloat(sizeLevel)
+        self.xScale = CGFloat(1)
+        self.yScale = CGFloat(1)
     }
     
     override init(texture: SKTexture?, color: SKColor?, size: CGSize) {

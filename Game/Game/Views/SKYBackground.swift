@@ -12,6 +12,9 @@ import QuartzCore
 
 class SKYBackground: UIImageView {
     
+    var bottomColor:UIColor!
+    var topColor:UIColor!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -28,18 +31,21 @@ class SKYBackground: UIImageView {
         UIGraphicsBeginImageContextWithOptions(self.frame.size, true, 1)
         
         let context = UIGraphicsGetCurrentContext()
-        
         let gradient = CAGradientLayer()
         gradient.frame = CGRectMake(0, 0, frame.size.width, frame.size.height)
-        let topColor:CGColor = UIColor.levelOneTopColor.CGColor
-        let bottomColor:CGColor = UIColor.levelOneBottomColor.CGColor
-        gradient.colors = [topColor, bottomColor]
+        topColor = UIColor.levelOneTopColor
+        bottomColor = UIColor.levelOneBottomColor
+        gradient.colors = [topColor.CGColor, bottomColor.CGColor]
         gradient.renderInContext(context)
         
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
         self.image = image
+    }
+    
+    func updateBackgroundForScore(score: Int) {
+        //TODO: Change color here based on score.
     }
     
     required init(coder: NSCoder) {

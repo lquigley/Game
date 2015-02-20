@@ -11,9 +11,11 @@ import SpriteKit
 
 class SKYViewController: UIViewController, SKYGameSceneScoreDelegate {
     
+    @IBOutlet weak var navView:UIView!
     @IBOutlet weak var gameView:SKView!
     @IBOutlet weak var timeLabel:UILabel!
     @IBOutlet weak var scoreLabel:UILabel!
+    @IBOutlet var goodLuckView:UIView!
     @IBOutlet var noteLabel:UILabel!
     @IBOutlet weak var backgroundImageView:SKYBackground!
     
@@ -40,6 +42,8 @@ class SKYViewController: UIViewController, SKYGameSceneScoreDelegate {
         scene.backgroundColor = UIColor.clearColor()
         
         self.gameView.presentScene(scene)
+        
+        self.noteLabel.removeFromSuperview()
     }
     
     override func shouldAutorotate() -> Bool {
@@ -65,14 +69,14 @@ class SKYViewController: UIViewController, SKYGameSceneScoreDelegate {
         let strSeconds = actualSeconds > 9 ? String(actualSeconds) : "0" + String(actualSeconds)
         
         self.timeLabel.text = "\(strMinutes):\(strSeconds)"
-        
-        if (seconds > 3) {
-            UIView.transitionWithView(self.view, duration: 1.0, options: nil, animations: {
-                self.noteLabel.alpha = 0.0
+    }
+    
+    func removeNoteLabel() {
+        UIView.transitionWithView(self.view, duration: 1.0, options: nil, animations: {
+            self.noteLabel.alpha = 0.0
             }, completion: { finished in
                 self.noteLabel.removeFromSuperview()
-            })
-        }
+        })
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -83,14 +87,27 @@ class SKYViewController: UIViewController, SKYGameSceneScoreDelegate {
     
     func updatedScore(score: Int) {
         self.scoreLabel.text = NSNumberFormatter.thousandFormatter.stringFromNumber(score)
+        
+        self.backgroundImageView.updateBackgroundForScore(score)
     }
     
     func startedGame() {
-        //Remove good luck label.
+        UIView.transitionWithView(self.view, duration: 0.3, options: nil, animations: {
+            self.goodLuckView.alpha = 0.0
+            }, completion: { finished in
+                self.goodLuckView.removeFromSuperview()
+                
+                self.view.insertSubview(self.noteLabel, aboveSubview: self.backgroundImageView)
+        })
         timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "updateTime", userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(3.0, target: self, selector: "removeNoteLabel", userInfo: nil, repeats: false)
     }
     
     func endedGame() {
         self.navigationController?.popViewControllerAnimated(false)
+    }
+    
+    func balloonSizeChanged(size: Int) {
+        //TODO: Make the nav bar flash to show that we're about to pop or fall.
     }
 }

@@ -23,13 +23,15 @@ class SKYBird: SKSpriteNode {
         self.physicsBody = SKPhysicsBody(circleOfRadius: CGRectGetWidth(self.frame) / 2)
         self.physicsBody!.allowsRotation = true
         self.physicsBody!.density = 400
-        self.physicsBody!.categoryBitMask = 0x1
+        self.physicsBody!.categoryBitMask = 0x3
         self.physicsBody!.collisionBitMask = 0x1
-        self.physicsBody?.velocity = CGVectorMake(80, 0)
         
-        let directionRoll = Int(arc4random_uniform(1))
+        let directionRoll = Int(arc4random_uniform(2))
         if directionRoll == 0 {
             self.xScale = -1
+            self.physicsBody?.velocity = CGVectorMake(200, 20)
+        } else {
+            self.physicsBody?.velocity = CGVectorMake(-200, 20)
         }
     }
     

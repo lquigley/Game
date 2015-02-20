@@ -12,6 +12,7 @@ protocol SKYGameSceneScoreDelegate {
     func updatedScore(score: Int)
     func startedGame()
     func endedGame()
+    func balloonSizeChanged(size: Int)
 }
 
 class SKYGameScene: SKScene, SKPhysicsContactDelegate, SKYBalloonDelegate {
@@ -40,6 +41,30 @@ class SKYGameScene: SKScene, SKPhysicsContactDelegate, SKYBalloonDelegate {
         let midPoint = CGPointMake(CGRectGetMidX(self.view!.bounds), CGRectGetMidY(self.view!.bounds))
         
         self.physicsWorld.contactDelegate = self;
+        
+        let leftWall = SKSpriteNode()
+        leftWall.position = CGPointMake(-10, 0);
+        leftWall.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(10, CGRectGetHeight(self.view!.frame)))
+        leftWall.physicsBody!.dynamic = false;
+        leftWall.physicsBody!.categoryBitMask = 0x4
+        leftWall.physicsBody!.collisionBitMask = 0x1
+        addChild(leftWall)
+        
+        let rightWall = SKSpriteNode()
+        rightWall.position = CGPointMake(CGRectGetWidth(self.view!.frame) / 2 + 10, 0);
+        rightWall.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(10, CGRectGetHeight(self.view!.frame)))
+        rightWall.physicsBody!.dynamic = false;
+        rightWall.physicsBody!.categoryBitMask = 0x4
+        rightWall.physicsBody!.collisionBitMask = 0x1
+        addChild(rightWall)
+        
+        let bottom = SKSpriteNode()
+        bottom.position = CGPointMake(0, -10);
+        bottom.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(CGRectGetWidth(self.view!.frame), 10))
+        bottom.physicsBody!.dynamic = false;
+        bottom.physicsBody!.categoryBitMask = 0x4
+        bottom.physicsBody!.collisionBitMask = 0x1
+        addChild(bottom)
         
         self.reset()
     }
@@ -109,14 +134,14 @@ class SKYGameScene: SKScene, SKPhysicsContactDelegate, SKYBalloonDelegate {
             })
             
             if _speed == 1 {
-                // One cloud/two second
-                if currentTime - _lastCloudSecond > 0.5 {
-                    self.addCloud()
+                //One cloud/two second
+                if currentTime - _lastCloudSecond > 2 {
+                    addCloud()
                     _lastCloudSecond = currentTime
                 }
-                // One cloud/two second
+                //One cloud/two second
                 if currentTime - _lastBirdSecond > 1 {
-                    self.addBird()
+                    addBird()
                     _lastBirdSecond = currentTime
                 }
                 
@@ -128,47 +153,53 @@ class SKYGameScene: SKScene, SKPhysicsContactDelegate, SKYBalloonDelegate {
     }
     
     func addCloud() {
-        let diceRoll = Int(arc4random_uniform(UInt32(CGRectGetWidth(self.view!.frame))))
+        let diceRoll = Int(arc4random_uniform(UInt32(CGRectGetWidth(view!.frame))))
         let cloud = SKYCloud()
-        cloud.position = CGPointMake(CGFloat(diceRoll), CGRectGetHeight(self.view!.frame))
-        self.addChild(cloud)
+        cloud.position = CGPointMake(CGFloat(diceRoll), CGRectGetHeight(view!.frame))
+        addChild(cloud)
     }
     
     func addBird() {
         let bird = SKYBird()
-        bird.position = CGPointMake(0, CGRectGetHeight(self.view!.frame))
-        self.addChild(bird)
+        let yValueRoll = CGRectGetHeight(view!.frame) - CGFloat(arc4random_uniform(200))
+        
+        if (bird.xScale == -1) {
+            bird.position = CGPointMake(0, yValueRoll)
+        } else {
+            bird.position = CGPointMake(CGRectGetWidth(view!.frame), yValueRoll)
+        }
+        addChild(bird)
     }
     
     func reset() {
         _started = false
-        self.physicsWorld.gravity = CGVectorMake(0, 0)
+        physicsWorld.gravity = CGVectorMake(0, 0)
         
-        self.enumerateChildNodesWithName("GoodNode", usingBlock: {
+        enumerateChildNodesWithName("GoodNode", usingBlock: {
             (node:SKNode!, stop: UnsafeMutablePointer <ObjCBool>) -> Void in
             node.removeFromParent()
         })
-        self.enumerateChildNodesWithName("BadNode", usingBlock: {
+        enumerateChildNodesWithName("BadNode", usingBlock: {
             (node:SKNode!, stop: UnsafeMutablePointer <ObjCBool>) -> Void in
             node.removeFromParent()
         })
         
-        let midPoint = CGPointMake(CGRectGetMidX(self.view!.bounds) / 2, CGRectGetMidY(self.view!.bounds) / 2)
+        let midPoint = CGPointMake(CGRectGetMidX(view!.bounds) / 2, CGRectGetMidY(view!.bounds) / 2)
         
         //Set up ground
         let action:SKAction = SKAction.moveTo(CGPointMake(190, 60), duration: 0)
-        self.ground.runAction(action)
-        self.ground.physicsBody?.resting = true
-        if self.ground.parent == nil {
-            self.addChild(self.ground)
+        ground.runAction(action)
+        ground.physicsBody?.resting = true
+        if ground.parent == nil {
+            addChild(ground)
         }
         
         //Set up balloon
-        self.balloon.delegate = self
-        self.balloon.position = midPoint
-        self.balloon.reset()
-        if self.balloon.parent == nil {
-            self.addChild(self.balloon)
+        balloon.delegate = self
+        balloon.position = midPoint
+        balloon.reset()
+        if balloon.parent == nil {
+            addChild(balloon)
         }
         
         let highestScore = NSUserDefaults.standardUserDefaults().integerForKey(SKYUserDefaultKeys.highScore)
@@ -177,14 +208,14 @@ class SKYGameScene: SKScene, SKPhysicsContactDelegate, SKYBalloonDelegate {
             NSUserDefaults.standardUserDefaults().synchronize()
         }
         
-        self.scoreDelegate?.updatedScore(_score)
+        scoreDelegate?.updatedScore(_score)
         
         _score = 0
     }
     
     func start() {
-        self.physicsWorld.gravity = CGVectorMake(0, -1)
-        self.scoreDelegate?.startedGame()
+        physicsWorld.gravity = CGVectorMake(0, -1)
+        scoreDelegate?.startedGame()
     }
     
     func didBeginContact(contact: SKPhysicsContact) {
@@ -192,9 +223,9 @@ class SKYGameScene: SKScene, SKPhysicsContactDelegate, SKYBalloonDelegate {
         let nodeB = contact.bodyB.node
         if nodeA!.isKindOfClass(SKYBalloon) {
             if nodeB != nil && nodeB!.isKindOfClass(SKYCloud) {
-                self.balloon.decreaseSize()
+                balloon.decreaseSize()
             } else if nodeB != nil && nodeB!.isKindOfClass(SKYBird) {
-                self.balloon.increaseSize()
+                balloon.increaseSize()
             }
             nodeB?.removeFromParent()
         }
