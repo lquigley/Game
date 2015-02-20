@@ -82,10 +82,10 @@
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Balloon" translatesAutoresizingMaskIntoConstraints="NO" id="Tf6-d0-3uM">
-                                <rect key="frame" x="265" y="255" width="70" height="90"/>
+                                <rect key="frame" x="270" y="241" width="60" height="119"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="90" id="8Bq-H4-ULj"/>
-                                    <constraint firstAttribute="width" constant="70" id="QSB-uy-2so"/>
+                                    <constraint firstAttribute="height" constant="119" id="8Bq-H4-ULj"/>
+                                    <constraint firstAttribute="width" constant="60" id="QSB-uy-2so"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HIGH SCORE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sZk-DP-NHN">
@@ -319,7 +319,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Balloon" width="75" height="90"/>
+        <image name="Balloon" width="57" height="118"/>
         <image name="Logo" width="185" height="49"/>
     </resources>
 </document>

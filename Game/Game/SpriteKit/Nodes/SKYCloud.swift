@@ -29,6 +29,8 @@ class SKYCloud: SKSpriteNode {
         //Random rotation to mix it up some more.
         let rotation = CGFloat(rand())/CGFloat(RAND_MAX)*2.0
         self.zRotation = rotation
+        
+        self.physicsBody?.velocity = CGVectorMake(0, -50)
     }
     
     override init(texture: SKTexture?, color: SKColor?, size: CGSize) {

@@ -28,3 +28,11 @@ class SKYSegueIdentifiers {
         }
     }
 }
+
+class SKYLevelConstants {
+    class var levelPoints:Int {
+        get {
+            return 500
+        }
+    }
+}

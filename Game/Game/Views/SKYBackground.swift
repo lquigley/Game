@@ -44,7 +44,7 @@ class SKYBackground: UIImageView {
     }
     
     func updateBackgroundForScore(score: Int) {
-        percentage = 1 - (CGFloat(score) / 10000)
+        percentage = 1 - (CGFloat(score) / CGFloat(SKYLevelConstants.levelPoints * 6))
         setup()
     }
     

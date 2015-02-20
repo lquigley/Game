@@ -89,7 +89,7 @@ class SKYGameScene: SKScene, SKPhysicsContactDelegate, SKYBalloonDelegate {
             var location = touch.locationInNode(self)
             
             //Offset the finger to 100 points below the balloon.
-            location.y += 100
+            location.y = CGRectGetHeight(self.frame) * 0.33
             
             //Keep it in bounds
             let screenSize = self.view!.bounds;
@@ -231,7 +231,7 @@ class SKYGameScene: SKScene, SKPhysicsContactDelegate, SKYBalloonDelegate {
     }
     
     func start() {
-        physicsWorld.gravity = CGVectorMake(0, -1)
+        physicsWorld.gravity = CGVectorMake(0, -2)
         scoreDelegate?.startedGame()
     }
     
@@ -265,7 +265,7 @@ class SKYGameScene: SKScene, SKPhysicsContactDelegate, SKYBalloonDelegate {
             if (_score != newValue) {
                 _score = newValue
                 
-                let expectedLevel = Int(floorf(Float(_score) / 500))
+                let expectedLevel = Int(floorf(Float(_score) / Float(SKYLevelConstants.levelPoints)))
                 if (expectedLevel > _level) {
                     self.level = expectedLevel
                 }
