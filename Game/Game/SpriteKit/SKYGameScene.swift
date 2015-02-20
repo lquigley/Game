@@ -42,28 +42,16 @@ class SKYGameScene: SKScene, SKPhysicsContactDelegate, SKYBalloonDelegate {
         
         self.physicsWorld.contactDelegate = self;
         
-        let leftWall = SKSpriteNode()
+        let leftWall = SKYWall(size: CGSizeMake(10, CGRectGetHeight(self.view!.frame)))
         leftWall.position = CGPointMake(-10, 0);
-        leftWall.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(10, CGRectGetHeight(self.view!.frame)))
-        leftWall.physicsBody!.dynamic = false;
-        leftWall.physicsBody!.categoryBitMask = 0x4
-        leftWall.physicsBody!.collisionBitMask = 0x1
         addChild(leftWall)
         
-        let rightWall = SKSpriteNode()
+        let rightWall = SKYWall(size: CGSizeMake(10, CGRectGetHeight(self.view!.frame)))
         rightWall.position = CGPointMake(CGRectGetWidth(self.view!.frame) / 2 + 10, 0);
-        rightWall.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(10, CGRectGetHeight(self.view!.frame)))
-        rightWall.physicsBody!.dynamic = false;
-        rightWall.physicsBody!.categoryBitMask = 0x4
-        rightWall.physicsBody!.collisionBitMask = 0x1
         addChild(rightWall)
         
-        let bottom = SKSpriteNode()
+        let bottom = SKYWall(size: CGSizeMake(CGRectGetWidth(self.view!.frame), 10))
         bottom.position = CGPointMake(0, -10);
-        bottom.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(CGRectGetWidth(self.view!.frame), 10))
-        bottom.physicsBody!.dynamic = false;
-        bottom.physicsBody!.categoryBitMask = 0x4
-        bottom.physicsBody!.collisionBitMask = 0x1
         addChild(bottom)
         
         self.reset()

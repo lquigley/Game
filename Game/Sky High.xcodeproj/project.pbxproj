@@ -19,6 +19,7 @@
 		96739A921A967C2100730A0D /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96739A911A967C2100730A0D /* UIColor.swift */; };
 		96739A941A967FF300730A0D /* SKYStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96739A931A967FF300730A0D /* SKYStartViewController.swift */; };
 		96739A981A9684F900730A0D /* SKYGoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96739A971A9684F900730A0D /* SKYGoButton.swift */; };
+		968AC3E91A97833800A6133E /* SKYWall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AC3E81A97833800A6133E /* SKYWall.swift */; };
 		96C51D1619CB422300E0DF15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C51D1519CB422300E0DF15 /* AppDelegate.swift */; };
 		96C51D1C19CB422300E0DF15 /* SKYViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C51D1B19CB422300E0DF15 /* SKYViewController.swift */; };
 		96C51D1F19CB422300E0DF15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96C51D1D19CB422300E0DF15 /* Main.storyboard */; };
@@ -39,6 +40,7 @@
 		96739A911A967C2100730A0D /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		96739A931A967FF300730A0D /* SKYStartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKYStartViewController.swift; sourceTree = "<group>"; };
 		96739A971A9684F900730A0D /* SKYGoButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKYGoButton.swift; sourceTree = "<group>"; };
+		968AC3E81A97833800A6133E /* SKYWall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKYWall.swift; sourceTree = "<group>"; };
 		96C51D1019CB422300E0DF15 /* Sky High.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sky High.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		96C51D1419CB422300E0DF15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96C51D1519CB422300E0DF15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				96739A801A96498D00730A0D /* SKYBird.swift */,
 				96739A811A96498D00730A0D /* SKYCloud.swift */,
 				96739A821A96498D00730A0D /* SKYGround.swift */,
+				968AC3E81A97833800A6133E /* SKYWall.swift */,
 			);
 			path = Nodes;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 				96739A981A9684F900730A0D /* SKYGoButton.swift in Sources */,
 				96C51D1C19CB422300E0DF15 /* SKYViewController.swift in Sources */,
 				96739A871A96498D00730A0D /* SKYBird.swift in Sources */,
+				968AC3E91A97833800A6133E /* SKYWall.swift in Sources */,
 				96739A861A96498D00730A0D /* SKYBalloon.swift in Sources */,
 				96C51D4B19CB821400E0DF15 /* SKYConstants.swift in Sources */,
 				96739A841A96498D00730A0D /* SKYGameScene.swift in Sources */,
