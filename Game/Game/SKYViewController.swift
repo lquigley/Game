@@ -98,6 +98,12 @@ class SKYViewController: UIViewController, SKYGameSceneScoreDelegate {
                 self.goodLuckView.removeFromSuperview()
                 
                 self.view.insertSubview(self.noteLabel, aboveSubview: self.backgroundImageView)
+                
+                //Center note label
+                let centerYConstraint = NSLayoutConstraint(item: self.noteLabel, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.CenterY, multiplier: 1.0, constant: 0.0)
+                let centerXConstraint = NSLayoutConstraint(item: self.noteLabel, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.CenterX, multiplier: 1.0, constant: 0.0)
+                self.view.addConstraint(centerYConstraint)
+                self.view.addConstraint(centerXConstraint)
         })
         timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "updateTime", userInfo: nil, repeats: true)
         timer = NSTimer.scheduledTimerWithTimeInterval(3.0, target: self, selector: "removeNoteLabel", userInfo: nil, repeats: false)

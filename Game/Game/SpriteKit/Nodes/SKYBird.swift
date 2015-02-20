@@ -8,23 +8,15 @@
 
 import SpriteKit
 
-class SKYBird: SKSpriteNode {
+class SKYBird: SKYBaddie {
     
-    convenience override init () {
+    convenience init () {
         //Random image of the two birds
         let diceRoll = Int(arc4random_uniform(2)) + 1
         let imageName = NSString.localizedStringWithFormat("Bird %d", diceRoll)
         
         let texture:SKTexture = SKTexture(imageNamed: imageName)
         self.init(texture: texture, color: SKColor.whiteColor(), size: texture.size())
-        
-        self.name = "BadNode"
-        
-        self.physicsBody = SKPhysicsBody(circleOfRadius: CGRectGetWidth(self.frame) / 2)
-        self.physicsBody!.allowsRotation = true
-        self.physicsBody!.density = 400
-        self.physicsBody!.categoryBitMask = 0x3
-        self.physicsBody!.collisionBitMask = 0x1
         
         let directionRoll = Int(arc4random_uniform(2))
         if directionRoll == 0 {
@@ -34,12 +26,30 @@ class SKYBird: SKSpriteNode {
             self.physicsBody?.velocity = CGVectorMake(-200, 20)
         }
     }
+}
+
+class SKYBird2: SKYBaddie {
     
-    override init(texture: SKTexture?, color: SKColor?, size: CGSize) {
-        super.init(texture: texture, color:color, size:size)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+    convenience init () {
+        //Random image of the two birds
+        var diceRoll = Int(arc4random_uniform(2)) + 1
+        diceRoll += 2
+        let imageName = NSString.localizedStringWithFormat("Bird %d", diceRoll)
+        
+        let texture:SKTexture = SKTexture(imageNamed: imageName)
+        self.init(texture: texture, color: SKColor.whiteColor(), size: texture.size())
+        
+        let directionRoll = Int(arc4random_uniform(2))
+        if directionRoll == 0 {
+            if (diceRoll == 3) {
+                self.xScale = -1
+            }
+            self.physicsBody?.velocity = CGVectorMake(200, 20)
+        } else {
+            if (diceRoll == 4) {
+                self.xScale = -1
+            }
+            self.physicsBody?.velocity = CGVectorMake(-200, 20)
+        }
     }
 }

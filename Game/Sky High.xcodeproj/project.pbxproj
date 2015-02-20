@@ -20,6 +20,10 @@
 		96739A941A967FF300730A0D /* SKYStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96739A931A967FF300730A0D /* SKYStartViewController.swift */; };
 		96739A981A9684F900730A0D /* SKYGoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96739A971A9684F900730A0D /* SKYGoButton.swift */; };
 		968AC3E91A97833800A6133E /* SKYWall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AC3E81A97833800A6133E /* SKYWall.swift */; };
+		968AC3EB1A97930500A6133E /* SKYBaddie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AC3EA1A97930500A6133E /* SKYBaddie.swift */; };
+		968AC3ED1A9795AC00A6133E /* SKYPlane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AC3EC1A9795AC00A6133E /* SKYPlane.swift */; };
+		968AC3EF1A97979100A6133E /* SKYEel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AC3EE1A97979100A6133E /* SKYEel.swift */; };
+		968AC3F11A9798D100A6133E /* SKYPlanet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AC3F01A9798D100A6133E /* SKYPlanet.swift */; };
 		96C51D1619CB422300E0DF15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C51D1519CB422300E0DF15 /* AppDelegate.swift */; };
 		96C51D1C19CB422300E0DF15 /* SKYViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C51D1B19CB422300E0DF15 /* SKYViewController.swift */; };
 		96C51D1F19CB422300E0DF15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96C51D1D19CB422300E0DF15 /* Main.storyboard */; };
@@ -41,6 +45,10 @@
 		96739A931A967FF300730A0D /* SKYStartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKYStartViewController.swift; sourceTree = "<group>"; };
 		96739A971A9684F900730A0D /* SKYGoButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKYGoButton.swift; sourceTree = "<group>"; };
 		968AC3E81A97833800A6133E /* SKYWall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKYWall.swift; sourceTree = "<group>"; };
+		968AC3EA1A97930500A6133E /* SKYBaddie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKYBaddie.swift; sourceTree = "<group>"; };
+		968AC3EC1A9795AC00A6133E /* SKYPlane.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKYPlane.swift; sourceTree = "<group>"; };
+		968AC3EE1A97979100A6133E /* SKYEel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKYEel.swift; sourceTree = "<group>"; };
+		968AC3F01A9798D100A6133E /* SKYPlanet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKYPlanet.swift; sourceTree = "<group>"; };
 		96C51D1019CB422300E0DF15 /* Sky High.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sky High.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		96C51D1419CB422300E0DF15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96C51D1519CB422300E0DF15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -82,10 +90,14 @@
 		96739A7D1A96498D00730A0D /* Nodes */ = {
 			isa = PBXGroup;
 			children = (
+				968AC3EA1A97930500A6133E /* SKYBaddie.swift */,
 				96739A7F1A96498D00730A0D /* SKYBalloon.swift */,
 				96739A801A96498D00730A0D /* SKYBird.swift */,
 				96739A811A96498D00730A0D /* SKYCloud.swift */,
+				968AC3EE1A97979100A6133E /* SKYEel.swift */,
 				96739A821A96498D00730A0D /* SKYGround.swift */,
+				968AC3EC1A9795AC00A6133E /* SKYPlane.swift */,
+				968AC3F01A9798D100A6133E /* SKYPlanet.swift */,
 				968AC3E81A97833800A6133E /* SKYWall.swift */,
 			);
 			path = Nodes;
@@ -224,7 +236,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				968AC3ED1A9795AC00A6133E /* SKYPlane.swift in Sources */,
 				96739A981A9684F900730A0D /* SKYGoButton.swift in Sources */,
+				968AC3EB1A97930500A6133E /* SKYBaddie.swift in Sources */,
 				96C51D1C19CB422300E0DF15 /* SKYViewController.swift in Sources */,
 				96739A871A96498D00730A0D /* SKYBird.swift in Sources */,
 				968AC3E91A97833800A6133E /* SKYWall.swift in Sources */,
@@ -234,10 +248,12 @@
 				96C51D1619CB422300E0DF15 /* AppDelegate.swift in Sources */,
 				96739A8C1A9649B500730A0D /* SKYBackground.swift in Sources */,
 				96739A921A967C2100730A0D /* UIColor.swift in Sources */,
+				968AC3EF1A97979100A6133E /* SKYEel.swift in Sources */,
 				96739A881A96498D00730A0D /* SKYCloud.swift in Sources */,
 				96739A901A965CAE00730A0D /* NSNumberFormatter.swift in Sources */,
 				96739A891A96498D00730A0D /* SKYGround.swift in Sources */,
 				96739A941A967FF300730A0D /* SKYStartViewController.swift in Sources */,
+				968AC3F11A9798D100A6133E /* SKYPlanet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

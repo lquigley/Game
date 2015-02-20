@@ -140,6 +140,7 @@
                     <navigationItem key="navigationItem" id="jbY-xl-bjc"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
+                        <outlet property="goButton" destination="Hik-Di-i8Q" id="Y7e-Gv-Q9s"/>
                         <outlet property="highScoreLabel" destination="9FO-aI-Glu" id="sIb-D7-wF5"/>
                         <segue destination="LVB-YS-i5n" kind="show" identifier="StartToGoSegue" id="A4u-r1-YyA"/>
                     </connections>

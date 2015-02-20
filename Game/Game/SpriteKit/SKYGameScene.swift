@@ -17,11 +17,11 @@ protocol SKYGameSceneScoreDelegate {
 
 class SKYGameScene: SKScene, SKPhysicsContactDelegate, SKYBalloonDelegate {
     
-    var _speed:Int = 1
     var _lastBirdSecond:CFTimeInterval = 0.0
     var _lastCloudSecond:CFTimeInterval = 0.0
     var _sameTouch:Bool = false
     var _score:Int = 0
+    var _level:Int = 0
     var _started:Bool = false
     
     var scoreDelegate:SKYGameSceneScoreDelegate?
@@ -121,20 +121,18 @@ class SKYGameScene: SKScene, SKPhysicsContactDelegate, SKYBalloonDelegate {
                 }
             })
             
-            if _speed == 1 {
-                //One cloud/two second
-                if currentTime - _lastCloudSecond > 2 {
-                    addCloud()
-                    _lastCloudSecond = currentTime
-                }
-                //One cloud/two second
-                if currentTime - _lastBirdSecond > 1 {
-                    addBird()
-                    _lastBirdSecond = currentTime
-                }
-                
-                _score += 1
+            //One cloud/two second
+            if currentTime - _lastCloudSecond > 2 {
+                addCloud()
+                _lastCloudSecond = currentTime
             }
+            //One cloud/two second
+            if currentTime - _lastBirdSecond > 1 {
+                addBaddie()
+                _lastBirdSecond = currentTime
+            }
+            
+            self.score += 1
             
             self.scoreDelegate?.updatedScore(_score)
         }
@@ -147,16 +145,34 @@ class SKYGameScene: SKScene, SKPhysicsContactDelegate, SKYBalloonDelegate {
         addChild(cloud)
     }
     
-    func addBird() {
-        let bird = SKYBird()
+    func addBaddie() {
+        var baddie:SKYBaddie
+        switch _level {
+        case 1:
+            baddie = SKYBird2()
+            break
+        case 2:
+            baddie = SKYPlane()
+            break
+        case 3:
+            baddie = SKYEel()
+            break
+        case 4:
+            baddie = SKYPlanet()
+            break
+        default:
+            baddie = SKYBird()
+            break
+        }
+        
         let yValueRoll = CGRectGetHeight(view!.frame) - CGFloat(arc4random_uniform(200))
         
-        if (bird.xScale == -1) {
-            bird.position = CGPointMake(0, yValueRoll)
+        if (baddie.xScale == -1) {
+            baddie.position = CGPointMake(0, yValueRoll)
         } else {
-            bird.position = CGPointMake(CGRectGetWidth(view!.frame), yValueRoll)
+            baddie.position = CGPointMake(CGRectGetWidth(view!.frame), yValueRoll)
         }
-        addChild(bird)
+        addChild(baddie)
     }
     
     func reset() {
@@ -223,5 +239,21 @@ class SKYGameScene: SKScene, SKPhysicsContactDelegate, SKYBalloonDelegate {
         balloon.reset()
         self.reset()
         self.scoreDelegate?.endedGame()
+    }
+    
+    var score:Int {
+        get {
+            return _score
+        }
+        set {
+            if (_score != newValue) {
+                _score = newValue
+                
+                let expectedLevel = Int(floorf(Float(_score) / 200))
+                if (expectedLevel > _level) {
+                    _level = expectedLevel
+                }
+            }
+        }
     }
 }
