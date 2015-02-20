@@ -128,12 +128,12 @@ class SKYGameScene: SKScene, SKPhysicsContactDelegate, SKYBalloonDelegate {
             })
             
             //One cloud/two second
-            if currentTime - _lastCloudSecond > 2 {
+            if currentTime - _lastCloudSecond > 0.5 {
                 addCloud()
                 _lastCloudSecond = currentTime
             }
             //One cloud/two second
-            if currentTime - _lastBirdSecond > 1 {
+            if currentTime - _lastBirdSecond > 1.5 {
                 addBaddie()
                 _lastBirdSecond = currentTime
             }
@@ -171,12 +171,17 @@ class SKYGameScene: SKScene, SKPhysicsContactDelegate, SKYBalloonDelegate {
             break
         }
         
-        let yValueRoll = CGRectGetHeight(view!.frame) - CGFloat(arc4random_uniform(200))
-        
-        if (baddie.direction == SKYBaddieDirection.Left) {
-            baddie.position = CGPointMake(0, yValueRoll)
+        if (baddie.physicsBody?.velocity.dx == 0) {
+            // No velocity so put it somewhere in the middle and let it fall.
+            let xValueRoll = CGFloat(arc4random_uniform(UInt32(CGRectGetWidth(view!.frame))))
+            baddie.position = CGPointMake(xValueRoll, CGRectGetHeight(view!.frame))
         } else {
-            baddie.position = CGPointMake(CGRectGetWidth(view!.frame), yValueRoll)
+            let yValueRoll = CGRectGetHeight(view!.frame) - CGFloat(arc4random_uniform(200))
+            if (baddie.direction == SKYBaddieDirection.Left) {
+                baddie.position = CGPointMake(0, yValueRoll)
+            } else {
+                baddie.position = CGPointMake(CGRectGetWidth(view!.frame), yValueRoll)
+            }
         }
         addChild(baddie)
     }
@@ -235,16 +240,15 @@ class SKYGameScene: SKScene, SKPhysicsContactDelegate, SKYBalloonDelegate {
         let nodeB = contact.bodyB.node
         if nodeA!.isKindOfClass(SKYBalloon) {
             if nodeB != nil && nodeB!.isKindOfClass(SKYCloud) {
-                balloon.decreaseSize()
-            } else if nodeB != nil && nodeB!.isKindOfClass(SKYBird) {
                 balloon.increaseSize()
+            } else if nodeB != nil && nodeB!.isKindOfClass(SKYBaddie) {
+                balloon.decreaseSize()
             }
             nodeB?.removeFromParent()
         }
     }
     
     func balloonExploded(balloon: SKYBalloon) {
-        
         NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "endGame", userInfo: nil, repeats: false)
     }
     
@@ -261,10 +265,27 @@ class SKYGameScene: SKScene, SKPhysicsContactDelegate, SKYBalloonDelegate {
             if (_score != newValue) {
                 _score = newValue
                 
-                let expectedLevel = Int(floorf(Float(_score) / 200))
+                let expectedLevel = Int(floorf(Float(_score) / 500))
                 if (expectedLevel > _level) {
-                    _level = expectedLevel
+                    self.level = expectedLevel
                 }
+            }
+        }
+    }
+    
+    var level:Int {
+        get {
+            return _level
+        }
+        set {
+            if (_level != newValue) {
+                _level = newValue
+                
+                //Drop a level icon
+                let levelRope = SKYLevelRope()
+                levelRope.level = _level
+                levelRope.position = CGPointMake (CGRectGetWidth(self.view!.frame) / 2, CGRectGetHeight(self.view!.frame))
+                addChild(levelRope)
             }
         }
     }

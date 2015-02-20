@@ -29,6 +29,7 @@
 		96C51D1F19CB422300E0DF15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96C51D1D19CB422300E0DF15 /* Main.storyboard */; };
 		96C51D2419CB422300E0DF15 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96C51D2219CB422300E0DF15 /* LaunchScreen.xib */; };
 		96C51D4B19CB821400E0DF15 /* SKYConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C51D4A19CB821400E0DF15 /* SKYConstants.swift */; };
+		96DCB7371A97A771003B6636 /* SKYLevelRope.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DCB7361A97A771003B6636 /* SKYLevelRope.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		96C51D1E19CB422300E0DF15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		96C51D2319CB422300E0DF15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		96C51D4A19CB821400E0DF15 /* SKYConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKYConstants.swift; sourceTree = "<group>"; };
+		96DCB7361A97A771003B6636 /* SKYLevelRope.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKYLevelRope.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 				96739A811A96498D00730A0D /* SKYCloud.swift */,
 				968AC3EE1A97979100A6133E /* SKYEel.swift */,
 				96739A821A96498D00730A0D /* SKYGround.swift */,
+				96DCB7361A97A771003B6636 /* SKYLevelRope.swift */,
 				968AC3EC1A9795AC00A6133E /* SKYPlane.swift */,
 				968AC3F01A9798D100A6133E /* SKYPlanet.swift */,
 				968AC3E81A97833800A6133E /* SKYWall.swift */,
@@ -239,6 +242,7 @@
 				968AC3ED1A9795AC00A6133E /* SKYPlane.swift in Sources */,
 				96739A981A9684F900730A0D /* SKYGoButton.swift in Sources */,
 				968AC3EB1A97930500A6133E /* SKYBaddie.swift in Sources */,
+				96DCB7371A97A771003B6636 /* SKYLevelRope.swift in Sources */,
 				96C51D1C19CB422300E0DF15 /* SKYViewController.swift in Sources */,
 				96739A871A96498D00730A0D /* SKYBird.swift in Sources */,
 				968AC3E91A97833800A6133E /* SKYWall.swift in Sources */,

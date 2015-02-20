@@ -57,7 +57,7 @@ class SKYBalloon: SKSpriteNode {
         if (sizeLevel > 5) {
             explode()
         } else {
-            let action:SKAction = SKAction.scaleBy(1.3, duration: 1)
+            let action:SKAction = SKAction.scaleBy(1.4, duration: 0.3)
             self.runAction(action)
         }
     }
@@ -68,7 +68,7 @@ class SKYBalloon: SKSpriteNode {
         if sizeLevel < 1 {
             explode()
         } else {
-            let action:SKAction = SKAction.scaleBy(0.769, duration: 1)
+            let action:SKAction = SKAction.scaleBy(0.714, duration: 0.3)
             self.runAction(action)
         }
     }

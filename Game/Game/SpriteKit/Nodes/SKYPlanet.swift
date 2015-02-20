@@ -17,17 +17,11 @@ class SKYPlanet: SKYBaddie {
         
         let texture:SKTexture = SKTexture(imageNamed: imageName)
         self.init(texture: texture, color: SKColor.whiteColor(), size: texture.size())
-        
-        if self.direction == SKYBaddieDirection.Left {
-            self.physicsBody?.velocity = CGVectorMake(velocity, 20)
-        } else {
-            self.physicsBody?.velocity = CGVectorMake(-1 * velocity, 20)
-        }
     }
     
     override var velocity:CGFloat {
         get {
-            return 100.0
+            return 0
         }
     }
 }
