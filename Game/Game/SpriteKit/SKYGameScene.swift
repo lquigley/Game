@@ -58,24 +58,30 @@ class SKYGameScene: SKScene, SKPhysicsContactDelegate, SKYBalloonDelegate {
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-        self.balloon.physicsBody!.resting = true
-        
-        if !_started {
-            self.start()
-            _started = true
+        if (!balloon.exploded) {
+            self.balloon.physicsBody!.resting = true
+            
+            if !_started {
+                self.start()
+                _started = true
+            }
+            self.assessTouches(touches)
         }
-        self.assessTouches(touches)
     }
     
     override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
-        self.assessTouches(touches)
+        if (!balloon.exploded) {
+            self.assessTouches(touches)
+        }
     }
     
     override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
-        self.assessTouches(touches)
-        
-        let action = SKAction.rotateToAngle(0, duration: 2.0)
-        self.balloon.runAction(action)
+        if (!balloon.exploded) {
+            self.assessTouches(touches)
+            
+            let action = SKAction.rotateToAngle(0, duration: 2.0)
+            self.balloon.runAction(action)
+        }
     }
     
     func assessTouches(touches:NSSet) {
@@ -176,6 +182,8 @@ class SKYGameScene: SKScene, SKPhysicsContactDelegate, SKYBalloonDelegate {
     }
     
     func reset() {
+        balloon.reset()
+        
         _started = false
         physicsWorld.gravity = CGVectorMake(0, 0)
         
@@ -236,7 +244,11 @@ class SKYGameScene: SKScene, SKPhysicsContactDelegate, SKYBalloonDelegate {
     }
     
     func balloonExploded(balloon: SKYBalloon) {
-        balloon.reset()
+        
+        NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "endGame", userInfo: nil, repeats: false)
+    }
+    
+    func endGame() {
         self.reset()
         self.scoreDelegate?.endedGame()
     }

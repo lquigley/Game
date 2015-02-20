@@ -16,6 +16,7 @@ class SKYBalloon: SKSpriteNode {
     
     var delegate:SKYBalloonDelegate?
     var sizeLevel:Int = 2
+    var exploded:Bool = false
     
     convenience override init () {
         let texture:SKTexture = SKTexture(imageNamed: "Balloon")
@@ -31,7 +32,12 @@ class SKYBalloon: SKSpriteNode {
     }
     
     func reset() {
+        exploded = false
         sizeLevel = 2
+        
+        let changeImage = SKAction.setTexture(SKTexture(imageNamed: "Balloon"))
+        self.runAction(changeImage)
+        
         self.physicsBody?.resting = true
         self.xScale = CGFloat(1)
         self.yScale = CGFloat(1)
@@ -49,7 +55,7 @@ class SKYBalloon: SKSpriteNode {
         sizeLevel++
         
         if (sizeLevel > 5) {
-            self.delegate?.balloonExploded(self)
+            explode()
         } else {
             let action:SKAction = SKAction.scaleBy(1.3, duration: 1)
             self.runAction(action)
@@ -60,10 +66,18 @@ class SKYBalloon: SKSpriteNode {
         sizeLevel--
         
         if sizeLevel < 1 {
-            self.delegate?.balloonExploded(self)
+            explode()
         } else {
             let action:SKAction = SKAction.scaleBy(0.769, duration: 1)
             self.runAction(action)
         }
+    }
+    
+    func explode() {
+        exploded = true
+        
+        let changeImage = SKAction.setTexture(SKTexture(imageNamed: "Pop"))
+        self.runAction(changeImage)
+        self.delegate?.balloonExploded(self)
     }
 }
